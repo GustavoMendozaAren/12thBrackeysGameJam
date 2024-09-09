@@ -13,7 +13,7 @@ public class ColocarTorreta : MonoBehaviour
     [SerializeField] private TileBase tilePermitido;  // El tipo de Tile en el que se puede colocar torretas
     
 
-    public TimerManagerScript timerManager;
+    [SerializeField] private TimerManagerScript timerManager;
 
     void Update()
     {
@@ -35,7 +35,7 @@ public class ColocarTorreta : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && EsTileValidoParaColocar(gridPosition))
         {
             ColocarTorretaEn(gridPosition);
-            timerManager.DayTime -= 3;
+            timerManager.DayTimeMin -= 3;
             modoContruccion = false;
         }
 
