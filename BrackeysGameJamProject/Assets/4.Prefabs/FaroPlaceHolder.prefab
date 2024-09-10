@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 3290494470844817183}
   - component: {fileID: 6332687674471409668}
   - component: {fileID: 3634500426217670871}
-  - component: {fileID: 6836137694283372564}
+  - component: {fileID: 9195088348568311144}
   m_Layer: 0
   m_Name: FaroPlaceHolder
   m_TagString: Untagged
@@ -527,7 +527,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6836137694283372564
+--- !u!114 &9195088348568311144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5382206992029074535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c740600f1621ce4ca6f3334e7d3936c, type: 3}
+  m_Script: {fileID: 11500000, guid: ab69ceca903301443ba844d91518bdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panelEstadisticas: {fileID: 402106040316802914}

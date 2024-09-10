@@ -7,8 +7,12 @@ using Unity.Collections.LowLevel.Unsafe;
 
 public class TimerManagerScript : MonoBehaviour
 {
+    [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI timerTxt;
-    [SerializeField] private GameObject buildBttn;
+
+    [Header("BOTONES")]
+    [SerializeField] private GameObject archersBttn;
+    [SerializeField] private GameObject faroBttn;
 
     private int dayTimeMin = 12;
     private int dayTimeSec = 0;
@@ -28,7 +32,8 @@ public class TimerManagerScript : MonoBehaviour
     {
         ActualizarTexto();
 
-        buildBttn.SetActive(true);
+        archersBttn.SetActive(true);
+        faroBttn.SetActive(true);
     }
 
     private void ActualizarTexto()
@@ -41,7 +46,8 @@ public class TimerManagerScript : MonoBehaviour
     {
         if (dayTimeMin < 3)
         {
-            buildBttn.SetActive(false);
+            archersBttn.SetActive(false);
+            faroBttn.SetActive(false);
         }
     }
 
@@ -51,7 +57,8 @@ public class TimerManagerScript : MonoBehaviour
         {
             dayTimeMin = 12;
             ActualizarTexto();
-            buildBttn.SetActive(true);
+            archersBttn.SetActive(true);
+            faroBttn.SetActive(true);
         }
     }
 }

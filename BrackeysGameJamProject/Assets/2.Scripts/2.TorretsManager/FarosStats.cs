@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorretsStats : MonoBehaviour
+public class FarosStats : MonoBehaviour
 {
     [SerializeField] private GameObject panelEstadisticas;
-    [SerializeField] private GameObject rango;
 
     void OnMouseDown()
     {
@@ -15,6 +14,5 @@ public class TorretsStats : MonoBehaviour
     void MostrarEstadisticas()
     {
         panelEstadisticas.SetActive(!panelEstadisticas.activeSelf);
-        rango.SetActive(!rango.activeSelf);
     }
 }

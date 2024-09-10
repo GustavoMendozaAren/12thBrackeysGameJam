@@ -8,7 +8,7 @@ public class EndTurnButtons : MonoBehaviour
 {
     [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel;
 
-    [SerializeField] Light2D globalLight;
+    [SerializeField] private Light2D globalLight;
     private float lightFadeDuration = 5f;
     private bool isFadingDown = false;
     private bool isFadingUp = false;
