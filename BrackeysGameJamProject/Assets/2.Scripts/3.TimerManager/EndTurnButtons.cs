@@ -9,9 +9,10 @@ public class EndTurnButtons : MonoBehaviour
     [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel;
 
     [SerializeField] private Light2D globalLight;
-    private float lightFadeDuration = 5f;
+    private float lightFadeDuration = 3f;
     private bool isFadingDown = false;
     private bool isFadingUp = false;
+
 
     private void Update()
     {
@@ -37,6 +38,9 @@ public class EndTurnButtons : MonoBehaviour
         dayButtonsPanel.SetActive(true);
         nightButtonsPanel.SetActive(false);
         isFadingUp = true;
+
+        ActualizarLuzDeTorres();
+
     }
 
     void FadeLightDown()
@@ -67,6 +71,17 @@ public class EndTurnButtons : MonoBehaviour
             // Detener el proceso de fade cuando se alcance la intensidad deseada.
             globalLight.intensity = 1f;
             isFadingUp = false;
+        }
+    }
+
+    void ActualizarLuzDeTorres()
+    {
+        FarosTower[] farosTowers = FindObjectsOfType<FarosTower>();
+
+        // Actualiza la luz de cada torreta de faro
+        foreach (FarosTower faro in farosTowers)
+        {
+            faro.ActualizarFarosLight();
         }
     }
 }

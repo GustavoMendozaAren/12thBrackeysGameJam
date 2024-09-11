@@ -5,7 +5,17 @@ using UnityEngine.Rendering.Universal;
 
 public class FarosTower : MonoBehaviour
 {
-    [SerializeField] private Light2D towersLight;
+    [SerializeField] private Light2D towerFaroLight;
 
-
+    public void ActualizarFarosLight()
+    {
+        if (towerFaroLight != null)
+        {
+            towerFaroLight.pointLightOuterRadius -= 1f;  // Cambia el radio externo a lo que necesites
+        }
+        else
+        {
+            Debug.LogWarning("Light2D component not assigned to the FarosTower script.");
+        }
+    }
 }

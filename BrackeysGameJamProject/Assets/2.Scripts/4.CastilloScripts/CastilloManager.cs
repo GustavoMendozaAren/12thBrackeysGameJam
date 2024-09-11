@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CastilloManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelCreacionPersonajes;
-    [SerializeField] private GameObject aldeanoBttn, builderBttn;
     private SpriteRenderer spriteRenderer;
+    private bool panelBloqueado = false;
+
+    [Header("TEXTOS")]
+    [SerializeField] private TextMeshProUGUI aldenosTxt;
+    [SerializeField] private TextMeshProUGUI buildersTxt;
+    private int aldeanosNumber = 0;
+    private int buildersNumber = 0;
 
     [Header("SCRIPTS LLAMADOS")]
     [SerializeField] private TimerManagerScript timerManagerCastillo;
@@ -19,6 +26,7 @@ public class CastilloManager : MonoBehaviour
     void OnMouseDown()
     {
         MostrarPanelCreacion();
+
         CheckTimeForButtons();
     }
 
@@ -34,7 +42,10 @@ public class CastilloManager : MonoBehaviour
 
     void MostrarPanelCreacion()
     {
-        panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf);
+        if (panelBloqueado)
+            return;
+        else
+            panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf); 
     }
 
     // Método para cambiar el alpha del color del SpriteRenderer
@@ -51,12 +62,16 @@ public class CastilloManager : MonoBehaviour
     public void AldenosCreationBttn()
     {
         timerManagerCastillo.DayTimeMin -= 2;
+        aldeanosNumber++;
+        aldenosTxt.text = "ALDEANOS: " + aldeanosNumber;
         CheckTimeForButtons();
     }
 
     public void BuilderCreationBttn()
     {
         timerManagerCastillo.DayTimeMin -= 2;
+        buildersNumber++;
+        buildersTxt.text = "BUILDERS: " + aldeanosNumber;
         CheckTimeForButtons();
     }
 
@@ -64,13 +79,12 @@ public class CastilloManager : MonoBehaviour
     {
         if(timerManagerCastillo.DayTimeMin < 2)
         {
-            aldeanoBttn.SetActive(false);
-            builderBttn.SetActive(false);
+            panelBloqueado = true;
+            panelCreacionPersonajes.SetActive(false);
         }
         else 
         {
-            aldeanoBttn.SetActive(true);
-            builderBttn.SetActive(true);
+            panelBloqueado = false;
         }
     }
 }
