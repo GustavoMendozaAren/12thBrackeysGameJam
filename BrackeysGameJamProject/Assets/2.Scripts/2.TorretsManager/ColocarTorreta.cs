@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,6 +10,9 @@ public class ColocarTorreta : MonoBehaviour
     bool modoContruccion = false;
     bool faroTower = false;
     bool archerTower = false;
+
+    [Header("PANEL DE CONSTRUCCION")]
+    [SerializeField] private GameObject panelDeCosntruccion;
 
     [Header("TORRETAS")]
     [SerializeField] private GameObject torretaPrefab;
@@ -37,6 +41,8 @@ public class ColocarTorreta : MonoBehaviour
         {
             ColocarTorretaYPreview();
         }
+
+        ActualizarPanelDeConstruccion();
     }
 
     void ColocarTorretaYPreview()
@@ -111,6 +117,8 @@ public class ColocarTorreta : MonoBehaviour
             Destroy(previewActual);
 
         previewActual = Instantiate(torretaPreviewPrefab);
+
+        ActualizarAldeanosDisponibles();
     }
 
     public void FaroTowerBttn()
@@ -122,5 +130,27 @@ public class ColocarTorreta : MonoBehaviour
             Destroy(previewActual);
 
         previewActual = Instantiate(faroPreviewPrefab);
+
+        ActualizarAldeanosDisponibles();
+    }
+
+    void ActualizarAldeanosDisponibles()
+    {
+        StaticVariables.cantidadBuildersDisponibles--;
+
+        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+    }
+
+    void ActualizarPanelDeConstruccion()
+    {
+        if(timerManager.DayTimeMin < 3 || StaticVariables.cantidadBuildersDisponibles < 1)
+        {
+            panelDeCosntruccion.SetActive(false);
+        }
+        else
+        {
+            panelDeCosntruccion.SetActive(true);
+        }
     }
 }

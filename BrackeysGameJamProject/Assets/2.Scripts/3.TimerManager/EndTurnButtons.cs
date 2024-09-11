@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -31,6 +32,10 @@ public class EndTurnButtons : MonoBehaviour
         dayButtonsPanel.SetActive(false);
         nightButtonsPanel.SetActive(true);
         isFadingDown = true;
+
+        StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
+        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
     }
 
     public void EndNightButton()
@@ -41,6 +46,7 @@ public class EndTurnButtons : MonoBehaviour
 
         ActualizarLuzDeTorres();
 
+        StaticVariables.diasTranscurridos++;
     }
 
     void FadeLightDown()
@@ -76,10 +82,10 @@ public class EndTurnButtons : MonoBehaviour
 
     void ActualizarLuzDeTorres()
     {
-        FarosTower[] farosTowers = FindObjectsOfType<FarosTower>();
+        FarosStats[] farosStats = FindObjectsOfType<FarosStats>();
 
         // Actualiza la luz de cada torreta de faro
-        foreach (FarosTower faro in farosTowers)
+        foreach (FarosStats faro in farosStats)
         {
             faro.ActualizarFarosLight();
         }

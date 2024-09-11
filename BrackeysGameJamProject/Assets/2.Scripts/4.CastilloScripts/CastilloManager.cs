@@ -5,18 +5,18 @@ using TMPro;
 
 public class CastilloManager : MonoBehaviour
 {
+    [Header("PANELES LLAMADOS")]
     [SerializeField] private GameObject panelCreacionPersonajes;
     private SpriteRenderer spriteRenderer;
-    private bool panelBloqueado = false;
 
     [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI aldenosTxt;
     [SerializeField] private TextMeshProUGUI buildersTxt;
     private int aldeanosNumber = 0;
-    private int buildersNumber = 0;
 
     [Header("DISPONIBLES TXT")]
     [SerializeField] private TextMeshProUGUI spareAldeanos;
+    [SerializeField] private TextMeshProUGUI spareBuilders;
 
     [Header("SCRIPTS LLAMADOS")]
     [SerializeField] private TimerManagerScript timerManagerCastillo;
@@ -26,11 +26,22 @@ public class CastilloManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        if (timerManagerCastillo.DayTimeMin < 2)
+            panelCreacionPersonajes.SetActive(false);
+        else
+            return;
+    }
+
     void OnMouseDown()
     {
-        MostrarPanelCreacion();
-
         CheckTimeForButtons();
+
+        if (timerManagerCastillo.DayTimeMin < 2)
+            return;
+        else
+            MostrarPanelCreacion();
     }
 
     private void OnMouseEnter()
@@ -45,10 +56,7 @@ public class CastilloManager : MonoBehaviour
 
     void MostrarPanelCreacion()
     {
-        if (panelBloqueado)
-            return;
-        else
-            panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf); 
+        panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf);
     }
 
     // Método para cambiar el alpha del color del SpriteRenderer
@@ -64,33 +72,45 @@ public class CastilloManager : MonoBehaviour
 
     public void AldenosCreationBttn()
     {
-        timerManagerCastillo.DayTimeMin -= 2;
-        aldeanosNumber++;
-        aldenosTxt.text = "ALDEANOS: " + aldeanosNumber;
-        CheckTimeForButtons();
+        if (aldeanosNumber < 10 && timerManagerCastillo.DayTimeMin >= 2) 
+        {
+            timerManagerCastillo.DayTimeMin -= 2;
+            aldeanosNumber++;
+            aldenosTxt.text = "ALDEANOS: " + aldeanosNumber + "/10";
+            CheckTimeForButtons();
 
-        StaticVariables.cantidadAldeanosDisponibles++;
-        spareAldeanos.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
+            StaticVariables.cantidadAldeanosDisponibles++;
+            spareAldeanos.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void BuilderCreationBttn()
     {
-        timerManagerCastillo.DayTimeMin -= 2;
-        buildersNumber++;
-        buildersTxt.text = "BUILDERS: " + buildersNumber;
-        CheckTimeForButtons();
+        if (StaticVariables.cantidadBuildersTotales < 5 && timerManagerCastillo.DayTimeMin >= 2) 
+        {
+            timerManagerCastillo.DayTimeMin -= 2;
+            StaticVariables.cantidadBuildersTotales++;
+            buildersTxt.text = "BUILDERS: " + StaticVariables.cantidadBuildersTotales + "/5";
+            CheckTimeForButtons();
+
+            StaticVariables.cantidadBuildersDisponibles++;
+            spareBuilders.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+        }
+        else
+        {
+            return;
+        }
     }
 
     void CheckTimeForButtons()
     {
-        if(timerManagerCastillo.DayTimeMin < 2)
-        {
-            panelBloqueado = true;
+        if (timerManagerCastillo.DayTimeMin < 2)
             panelCreacionPersonajes.SetActive(false);
-        }
-        else 
-        {
-            panelBloqueado = false;
-        }
+        else
+            return;
     }
 }
