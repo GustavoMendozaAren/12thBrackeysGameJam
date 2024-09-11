@@ -71,7 +71,7 @@ public class CastilloManager : MonoBehaviour
     {
         timerManagerCastillo.DayTimeMin -= 2;
         buildersNumber++;
-        buildersTxt.text = "BUILDERS: " + aldeanosNumber;
+        buildersTxt.text = "BUILDERS: " + buildersNumber;
         CheckTimeForButtons();
     }
 
