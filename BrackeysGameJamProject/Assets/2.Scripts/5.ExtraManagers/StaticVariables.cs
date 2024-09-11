@@ -1,6 +1,6 @@
 public static class StaticVariables
 {
     public static int diasTranscurridos = 0;
-    public static bool botonNocheActivado = false;
+    public static int cantidadAldeanosDisponibles = 0;
 
 }

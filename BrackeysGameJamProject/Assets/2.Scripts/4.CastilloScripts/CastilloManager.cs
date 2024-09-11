@@ -15,6 +15,9 @@ public class CastilloManager : MonoBehaviour
     private int aldeanosNumber = 0;
     private int buildersNumber = 0;
 
+    [Header("DISPONIBLES TXT")]
+    [SerializeField] private TextMeshProUGUI spareAldeanos;
+
     [Header("SCRIPTS LLAMADOS")]
     [SerializeField] private TimerManagerScript timerManagerCastillo;
 
@@ -65,6 +68,9 @@ public class CastilloManager : MonoBehaviour
         aldeanosNumber++;
         aldenosTxt.text = "ALDEANOS: " + aldeanosNumber;
         CheckTimeForButtons();
+
+        StaticVariables.cantidadAldeanosDisponibles++;
+        spareAldeanos.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
     }
 
     public void BuilderCreationBttn()
