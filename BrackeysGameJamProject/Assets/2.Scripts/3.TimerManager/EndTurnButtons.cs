@@ -36,6 +36,9 @@ public class EndTurnButtons : MonoBehaviour
         StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
         TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
         spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+
+        ActivarCollidersTorres();
+
     }
 
     public void EndNightButton()
@@ -46,7 +49,11 @@ public class EndTurnButtons : MonoBehaviour
 
         ActualizarLuzDeTorres();
 
-        StaticVariables.diasTranscurridos++;
+        ActualizarAldeanosMuertosDeTorre();
+
+        Invoke(nameof(DesactivarColliderTorres), 1f);
+
+        //StaticVariables.diasTranscurridos++;
     }
 
     void FadeLightDown()
@@ -89,5 +96,30 @@ public class EndTurnButtons : MonoBehaviour
         {
             faro.ActualizarFarosLight();
         }
+    }
+
+    void ActualizarAldeanosMuertosDeTorre()
+    {
+        TorretsStats[] torreStats = FindObjectsOfType<TorretsStats>();
+
+        foreach (TorretsStats arqueros in torreStats)
+        {
+            arqueros.ActualizarAldeanosMuertos();
+        }
+        
+    }
+
+    void ActivarCollidersTorres()
+    {
+        FarosStats farosStats = FindObjectOfType<FarosStats>();
+        farosStats.farosCollider.enabled = true;
+        Debug.Log("CollidersActivados");
+    }
+
+    void DesactivarColliderTorres()
+    {
+        FarosStats farosStats = FindObjectOfType<FarosStats>();
+        farosStats.farosCollider.enabled = false;
+        Debug.Log("CollidersDesactivados");
     }
 }

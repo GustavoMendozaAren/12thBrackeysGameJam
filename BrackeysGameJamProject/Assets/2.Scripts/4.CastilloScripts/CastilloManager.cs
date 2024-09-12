@@ -12,7 +12,6 @@ public class CastilloManager : MonoBehaviour
     [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI aldenosTxt;
     [SerializeField] private TextMeshProUGUI buildersTxt;
-    private int aldeanosNumber = 0;
 
     [Header("DISPONIBLES TXT")]
     [SerializeField] private TextMeshProUGUI spareAldeanos;
@@ -72,11 +71,11 @@ public class CastilloManager : MonoBehaviour
 
     public void AldenosCreationBttn()
     {
-        if (aldeanosNumber < 10 && timerManagerCastillo.DayTimeMin >= 2) 
+        if (StaticVariables.cantidadAldeanosTotales < 10 && timerManagerCastillo.DayTimeMin >= 2) 
         {
             timerManagerCastillo.DayTimeMin -= 2;
-            aldeanosNumber++;
-            aldenosTxt.text = "ALDEANOS: " + aldeanosNumber + "/10";
+            StaticVariables.cantidadAldeanosTotales++;
+            aldenosTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales + "/10";
             CheckTimeForButtons();
 
             StaticVariables.cantidadAldeanosDisponibles++;

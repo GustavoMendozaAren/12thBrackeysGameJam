@@ -40,6 +40,11 @@ public class ColocarTorreta : MonoBehaviour
         if (modoContruccion && previewActual != null)
         {
             ColocarTorretaYPreview();
+
+            if (Input.GetMouseButtonDown(1)) // Botón derecho del mouse
+            {
+                CancelarConstruccion();
+            }
         }
 
         ActualizarPanelDeConstruccion();
@@ -118,7 +123,7 @@ public class ColocarTorreta : MonoBehaviour
 
         previewActual = Instantiate(torretaPreviewPrefab);
 
-        ActualizarAldeanosDisponibles();
+        ActualizarAldeanosDisponibles(1);
     }
 
     public void FaroTowerBttn()
@@ -131,12 +136,27 @@ public class ColocarTorreta : MonoBehaviour
 
         previewActual = Instantiate(faroPreviewPrefab);
 
-        ActualizarAldeanosDisponibles();
+        ActualizarAldeanosDisponibles(1);
     }
 
-    void ActualizarAldeanosDisponibles()
+    void CancelarConstruccion()
     {
-        StaticVariables.cantidadBuildersDisponibles--;
+        if (previewActual != null)
+        {
+            Destroy(previewActual);
+            previewActual = null;
+        }
+
+        modoContruccion = false;
+        faroTower = false;
+        archerTower = false;
+
+        ActualizarAldeanosDisponibles(-1);
+    }
+
+    void ActualizarAldeanosDisponibles(int number)
+    {
+        StaticVariables.cantidadBuildersDisponibles -= number;
 
         TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
         spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;

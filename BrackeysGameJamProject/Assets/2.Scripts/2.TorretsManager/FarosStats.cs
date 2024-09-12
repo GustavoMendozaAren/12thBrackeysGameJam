@@ -16,6 +16,8 @@ public class FarosStats : MonoBehaviour
 
     [SerializeField] private Light2D towerFaroLight;
 
+    public CircleCollider2D farosCollider;
+
     void OnMouseDown()
     {
         panelEstadisticas.SetActive(!panelEstadisticas.activeSelf);
@@ -31,11 +33,15 @@ public class FarosStats : MonoBehaviour
         if (towerFaroLight != null)
         {
             towerFaroLight.pointLightOuterRadius -= 1f;
+            farosCollider.radius--;
             fuel--;
             ActualizarTextosFuel();
 
-            if (towerFaroLight.pointLightOuterRadius < 1f)
-                towerFaroLight.pointLightOuterRadius = 0.5f;
+            if (towerFaroLight.pointLightOuterRadius < 2f)
+                towerFaroLight.pointLightOuterRadius = 1f;
+
+            if (farosCollider.radius < 2f)
+                farosCollider.radius = 1f;
         }
         else
         {
@@ -45,11 +51,12 @@ public class FarosStats : MonoBehaviour
 
     public void AumentarElFuelBttn()
     {
-        if(towerFaroLight.pointLightOuterRadius < 3.5f)
+        if(towerFaroLight.pointLightOuterRadius < 4f)
         {
             if(StaticVariables.cantidadBuildersDisponibles > 0)
             {
                 towerFaroLight.pointLightOuterRadius += 1f;
+                farosCollider.radius++;
                 fuel++;
                 StaticVariables.cantidadBuildersDisponibles--;
                 ActualizarTextosFuel();
@@ -65,6 +72,5 @@ public class FarosStats : MonoBehaviour
         fuelTxt.text = "FUEL: " + fuel;
         cantidadDeFuelTxt.text = fuel + "/3";
     }
-
 
 }
