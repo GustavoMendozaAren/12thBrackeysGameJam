@@ -37,11 +37,11 @@ public class FarosStats : MonoBehaviour
             fuel--;
             ActualizarTextosFuel();
 
-            if (towerFaroLight.pointLightOuterRadius < 2f)
-                towerFaroLight.pointLightOuterRadius = 1f;
+            if (towerFaroLight.pointLightOuterRadius < 1f)
+                towerFaroLight.pointLightOuterRadius = .3f;
 
-            if (farosCollider.radius < 2f)
-                farosCollider.radius = 1f;
+            if (farosCollider.radius < 1f)
+                farosCollider.radius = .3f;
         }
         else
         {
@@ -51,7 +51,7 @@ public class FarosStats : MonoBehaviour
 
     public void AumentarElFuelBttn()
     {
-        if(towerFaroLight.pointLightOuterRadius < 4f)
+        if(towerFaroLight.pointLightOuterRadius < 3.3f)
         {
             if(StaticVariables.cantidadBuildersDisponibles > 0)
             {
