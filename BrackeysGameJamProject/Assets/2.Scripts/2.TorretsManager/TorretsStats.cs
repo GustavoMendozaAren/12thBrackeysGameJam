@@ -124,6 +124,6 @@ public class TorretsStats : MonoBehaviour
         damage -= (number * 10);
 
         TextMeshProUGUI aldeanosTotalesTxt = GameObject.Find("Aldeanos_Txt").GetComponent<TextMeshProUGUI>();
-        aldeanosTotalesTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales;
+        aldeanosTotalesTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales + "/10";
     }
 }
