@@ -14,6 +14,8 @@ public class EndTurnButtons : MonoBehaviour
     private bool isFadingDown = false;
     private bool isFadingUp = false;
 
+    [SerializeField] private TextMeshProUGUI daysTxt;
+
 
     private void Update()
     {
@@ -53,7 +55,8 @@ public class EndTurnButtons : MonoBehaviour
 
         Invoke(nameof(DesactivarColliderTorres), 1f);
 
-        //StaticVariables.diasTranscurridos++;
+        StaticVariables.diasTranscurridos++;
+        daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
     }
 
     void FadeLightDown()
@@ -112,14 +115,21 @@ public class EndTurnButtons : MonoBehaviour
     void ActivarCollidersTorres()
     {
         FarosStats farosStats = FindObjectOfType<FarosStats>();
-        farosStats.farosCollider.enabled = true;
-        Debug.Log("CollidersActivados");
+        if (farosStats != null)
+        {
+            farosStats.farosCollider.enabled = true;
+            Debug.Log("Colliders Activados");
+        }
     }
 
     void DesactivarColliderTorres()
     {
         FarosStats farosStats = FindObjectOfType<FarosStats>();
-        farosStats.farosCollider.enabled = false;
-        Debug.Log("CollidersDesactivados");
+
+        if (farosStats != null)
+        {
+            farosStats.farosCollider.enabled = false;
+            Debug.Log("CollidersDesactivados");
+        }
     }
 }
