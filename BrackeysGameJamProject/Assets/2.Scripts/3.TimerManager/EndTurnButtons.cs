@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -8,10 +9,13 @@ public class EndTurnButtons : MonoBehaviour
 {
     [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel;
 
-    [SerializeField] Light2D globalLight;
-    private float lightFadeDuration = 5f;
+    [SerializeField] private Light2D globalLight;
+    private float lightFadeDuration = 3f;
     private bool isFadingDown = false;
     private bool isFadingUp = false;
+
+    [SerializeField] private TextMeshProUGUI daysTxt;
+
 
     private void Update()
     {
@@ -30,6 +34,13 @@ public class EndTurnButtons : MonoBehaviour
         dayButtonsPanel.SetActive(false);
         nightButtonsPanel.SetActive(true);
         isFadingDown = true;
+
+        StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
+        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+
+        ActivarCollidersTorres();
+
     }
 
     public void EndNightButton()
@@ -37,6 +48,15 @@ public class EndTurnButtons : MonoBehaviour
         dayButtonsPanel.SetActive(true);
         nightButtonsPanel.SetActive(false);
         isFadingUp = true;
+
+        ActualizarLuzDeTorres();
+
+        ActualizarAldeanosMuertosDeTorre();
+
+        Invoke(nameof(DesactivarColliderTorres), 1f);
+
+        StaticVariables.diasTranscurridos++;
+        daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
     }
 
     void FadeLightDown()
@@ -67,6 +87,49 @@ public class EndTurnButtons : MonoBehaviour
             // Detener el proceso de fade cuando se alcance la intensidad deseada.
             globalLight.intensity = 1f;
             isFadingUp = false;
+        }
+    }
+
+    void ActualizarLuzDeTorres()
+    {
+        FarosStats[] farosStats = FindObjectsOfType<FarosStats>();
+
+        // Actualiza la luz de cada torreta de faro
+        foreach (FarosStats faro in farosStats)
+        {
+            faro.ActualizarFarosLight();
+        }
+    }
+
+    void ActualizarAldeanosMuertosDeTorre()
+    {
+        TorretsStats[] torreStats = FindObjectsOfType<TorretsStats>();
+
+        foreach (TorretsStats arqueros in torreStats)
+        {
+            arqueros.ActualizarAldeanosMuertos();
+        }
+        
+    }
+
+    void ActivarCollidersTorres()
+    {
+        FarosStats farosStats = FindObjectOfType<FarosStats>();
+        if (farosStats != null)
+        {
+            farosStats.farosCollider.enabled = true;
+            Debug.Log("Colliders Activados");
+        }
+    }
+
+    void DesactivarColliderTorres()
+    {
+        FarosStats farosStats = FindObjectOfType<FarosStats>();
+
+        if (farosStats != null)
+        {
+            farosStats.farosCollider.enabled = false;
+            Debug.Log("CollidersDesactivados");
         }
     }
 }

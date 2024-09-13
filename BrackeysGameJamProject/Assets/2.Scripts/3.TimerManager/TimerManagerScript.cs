@@ -7,8 +7,8 @@ using Unity.Collections.LowLevel.Unsafe;
 
 public class TimerManagerScript : MonoBehaviour
 {
+    [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI timerTxt;
-    [SerializeField] private GameObject buildBttn;
 
     private int dayTimeMin = 12;
     private int dayTimeSec = 0;
@@ -19,16 +19,12 @@ public class TimerManagerScript : MonoBehaviour
         {
             dayTimeMin = Mathf.Max(0, value);
             ActualizarTexto();
-
-            TimeOverCondition();
         } 
     }
 
     void Start()
     {
         ActualizarTexto();
-
-        buildBttn.SetActive(true);
     }
 
     private void ActualizarTexto()
@@ -37,21 +33,9 @@ public class TimerManagerScript : MonoBehaviour
         timerTxt.text = string.Format("{0:00}:{1:00}", dayTimeMin, dayTimeSec);
     }
 
-    private void TimeOverCondition()
-    {
-        if (dayTimeMin < 3)
-        {
-            buildBttn.SetActive(false);
-        }
-    }
-
     public void RestartDayHours()
     {
-        if (dayTimeMin == 0)
-        {
-            dayTimeMin = 12;
-            ActualizarTexto();
-            buildBttn.SetActive(true);
-        }
+        dayTimeMin = 12;
+        ActualizarTexto();
     }
 }

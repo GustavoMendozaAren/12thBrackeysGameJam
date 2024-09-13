@@ -13,15 +13,6 @@ public class NightTimeTimer : MonoBehaviour
 
     private float timerSpeed = 4f;
 
-    void OnEnable()
-    {
-        timerSpeed = 4f;
-        timeRemaining = 12 * 60;
-        endNightBttn.SetActive(false);
-        timerIsRunning = true;
-        UpdateTimerText();
-    }
-
     void Update()
     {
         if (timerIsRunning)
@@ -65,6 +56,15 @@ public class NightTimeTimer : MonoBehaviour
 
     public void DoubleSpeedBttn()
     {
-        timerSpeed = 36f; 
+        timerSpeed = 48f; 
+    }
+
+    public void ResertNightTimerBttn()
+    {
+        timerSpeed = 4f;
+        timeRemaining = 12 * 60;
+        endNightBttn.SetActive(false);
+        timerIsRunning = true;
+        UpdateTimerText();
     }
 }
