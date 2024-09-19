@@ -6,15 +6,23 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [Header ("PANELES")]
-    [SerializeField] private GameObject mainMenuPanel, optionsPanel, creditsPanel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject creditsPanel;
 
-    [Header ("OBJETOS")]
+    [Header("OBJETOS")]
+    [SerializeField] private GameObject logoCentralObj;
     [SerializeField] private GameObject lunaImage;
     [SerializeField] private GameObject solImage;
+    [SerializeField] private GameObject optionsTxtObj;
+    [SerializeField] private GameObject creditsTxtObj;
 
     [Header("ANIMATORS")]
+    [SerializeField] private Animator logoCentralAnim;
     [SerializeField] private Animator lunaAnim;
     [SerializeField] private Animator solAnim;
+    [SerializeField] private Animator optionsTxtAnim;
+    [SerializeField] private Animator creditsTxtAnim;
 
 
 
@@ -22,6 +30,9 @@ public class MainMenuManager : MonoBehaviour
     {
         lunaAnim = lunaImage.GetComponent<Animator>();
         solAnim = solImage.GetComponent<Animator>();
+        creditsTxtAnim = creditsTxtObj.GetComponent<Animator>();
+        optionsTxtAnim = optionsTxtObj.GetComponent<Animator>();
+        logoCentralAnim = logoCentralObj.GetComponent<Animator>();
     }
     public void PlayBttn()
     {
@@ -35,6 +46,12 @@ public class MainMenuManager : MonoBehaviour
         lunaAnim.SetBool("InOptions", true);
 
         solAnim.SetBool("OutMainSol", true);
+
+        optionsTxtAnim.SetBool("OutOptionsPanel", false);
+        optionsTxtAnim.SetBool("OptionsTextAcitve", true);
+
+        logoCentralAnim.SetBool("CentralLogoOut", true);
+        logoCentralAnim.SetBool("CentralLogoInMain", true);
     }
 
     public void OptionsBttnExit()
@@ -44,6 +61,13 @@ public class MainMenuManager : MonoBehaviour
         lunaAnim.SetBool("InOptions", false);
 
         solAnim.SetBool("OutMainSol", false);
+
+        optionsTxtAnim.SetBool("OutOptionsPanel", true);
+        optionsTxtAnim.SetBool("OptionsTextAcitve", false);
+
+        logoCentralAnim.SetBool("CentralLogoOut", false);
+        //logoCentralAnim.SetBool("CentralLogoInMain", false);
+
     }
 
     public void CreditsBttn()
@@ -53,6 +77,13 @@ public class MainMenuManager : MonoBehaviour
         solAnim.SetBool("InCredits", true);
 
         lunaAnim.SetBool("OutMainLuna", true);
+
+        creditsTxtAnim.SetBool("OutCreditsPanel", false);
+        creditsTxtAnim.SetBool("CreditsTxtActive", true);
+
+        logoCentralAnim.SetBool("CentralLogoOut", true);
+        logoCentralAnim.SetBool("CentralLogoInMain", true);
+
     }
 
     public void CreditsBttnExit()
@@ -62,6 +93,13 @@ public class MainMenuManager : MonoBehaviour
         solAnim.SetBool("InCredits", false);
 
         lunaAnim.SetBool("OutMainLuna", false);
+
+        creditsTxtAnim.SetBool("OutCreditsPanel", true);
+        creditsTxtAnim.SetBool("CreditsTxtActive", false);
+
+        logoCentralAnim.SetBool("CentralLogoOut", false);
+        //logoCentralAnim.SetBool("CentralLogoInMain", false);
+
     }
 
     public void ExitBttn()
