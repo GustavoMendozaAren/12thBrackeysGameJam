@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject solImage;
     [SerializeField] private GameObject optionsTxtObj;
     [SerializeField] private GameObject creditsTxtObj;
+    [SerializeField] private GameObject personsObj;
 
     [Header("ANIMATORS")]
     [SerializeField] private Animator logoCentralAnim;
@@ -23,6 +24,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Animator solAnim;
     [SerializeField] private Animator optionsTxtAnim;
     [SerializeField] private Animator creditsTxtAnim;
+    [SerializeField] private Animator personsAnim;
+
+    [Header("BOTONES")]
+    [SerializeField] private GameObject backBttn;
 
 
 
@@ -33,6 +38,7 @@ public class MainMenuManager : MonoBehaviour
         creditsTxtAnim = creditsTxtObj.GetComponent<Animator>();
         optionsTxtAnim = optionsTxtObj.GetComponent<Animator>();
         logoCentralAnim = logoCentralObj.GetComponent<Animator>();
+        personsAnim = personsObj.GetComponent<Animator>();
     }
     public void PlayBttn()
     {
@@ -66,12 +72,12 @@ public class MainMenuManager : MonoBehaviour
         optionsTxtAnim.SetBool("OptionsTextAcitve", false);
 
         logoCentralAnim.SetBool("CentralLogoOut", false);
-        //logoCentralAnim.SetBool("CentralLogoInMain", false);
 
     }
 
     public void CreditsBttn()
     {
+        backBttn.SetActive(true);
         creditsPanel.SetActive(true);
         mainMenuPanel.SetActive(false);
         solAnim.SetBool("InCredits", true);
@@ -84,11 +90,13 @@ public class MainMenuManager : MonoBehaviour
         logoCentralAnim.SetBool("CentralLogoOut", true);
         logoCentralAnim.SetBool("CentralLogoInMain", true);
 
+        personsAnim.SetBool("PersonasCreditsOut", false);
+
     }
 
     public void CreditsBttnExit()
     {
-        creditsPanel.SetActive(false);
+        backBttn.SetActive(false);
         mainMenuPanel.SetActive(true);
         solAnim.SetBool("InCredits", false);
 
@@ -98,12 +106,19 @@ public class MainMenuManager : MonoBehaviour
         creditsTxtAnim.SetBool("CreditsTxtActive", false);
 
         logoCentralAnim.SetBool("CentralLogoOut", false);
-        //logoCentralAnim.SetBool("CentralLogoInMain", false);
 
+        personsAnim.SetBool("PersonasCreditsOut", true);
+
+        Invoke("DeactiveCreditsPanel", 1.5f);
     }
 
     public void ExitBttn()
     {
         Application.Quit();
+    }
+
+    private void DeactiveCreditsPanel()
+    {
+        creditsPanel.SetActive(false);
     }
 }
