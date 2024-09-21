@@ -16,6 +16,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject solImage;
     [SerializeField] private GameObject optionsTxtObj;
     [SerializeField] private GameObject creditsTxtObj;
+    [SerializeField] private GameObject playTxtObj;
     [SerializeField] private GameObject personsObj;
 
     [Header("ANIMATORS")]
@@ -24,10 +25,17 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Animator solAnim;
     [SerializeField] private Animator optionsTxtAnim;
     [SerializeField] private Animator creditsTxtAnim;
+    [SerializeField] private Animator playTxtAnim;
     [SerializeField] private Animator personsAnim;
 
     [Header("BOTONES")]
     [SerializeField] private GameObject backBttn;
+
+    [Header("SLIDERS OBJ")]
+    [SerializeField] private GameObject sliderMaster;
+    [SerializeField] private GameObject sliderNarration;
+    [SerializeField] private GameObject sliderMusic;
+    [SerializeField] private GameObject sliderSfx;
 
 
 
@@ -37,12 +45,22 @@ public class MainMenuManager : MonoBehaviour
         solAnim = solImage.GetComponent<Animator>();
         creditsTxtAnim = creditsTxtObj.GetComponent<Animator>();
         optionsTxtAnim = optionsTxtObj.GetComponent<Animator>();
+        playTxtAnim = playTxtObj.GetComponent<Animator>();
         logoCentralAnim = logoCentralObj.GetComponent<Animator>();
         personsAnim = personsObj.GetComponent<Animator>();
     }
     public void PlayBttn()
     {
-        SceneManager.LoadScene("TestScene1");
+        mainMenuPanel.SetActive(false);
+
+        playTxtAnim.SetBool("PlayTextOut", true);
+        solAnim.SetBool("OutMainSol", true);
+        lunaAnim.SetBool("OutMainLuna", true);
+
+        logoCentralAnim.SetBool("CentralLogoOut", true);
+        logoCentralAnim.SetBool("CentralLogoInMain", true);
+
+        Invoke("PlayGameFunction", 3.5f);
     }
 
     public void OptionsBttn()
@@ -58,11 +76,15 @@ public class MainMenuManager : MonoBehaviour
 
         logoCentralAnim.SetBool("CentralLogoOut", true);
         logoCentralAnim.SetBool("CentralLogoInMain", true);
+
+        StartCoroutine(SlidersAppearingTime());
     }
 
     public void OptionsBttnExit()
     {
-        optionsPanel.SetActive(false);
+        StopCoroutine(SlidersAppearingTime());
+
+        
         mainMenuPanel.SetActive(true);
         lunaAnim.SetBool("InOptions", false);
 
@@ -73,6 +95,7 @@ public class MainMenuManager : MonoBehaviour
 
         logoCentralAnim.SetBool("CentralLogoOut", false);
 
+        StartCoroutine(SlidersDeappearingTime());
     }
 
     public void CreditsBttn()
@@ -120,5 +143,37 @@ public class MainMenuManager : MonoBehaviour
     private void DeactiveCreditsPanel()
     {
         creditsPanel.SetActive(false);
+    }
+
+    private void PlayGameFunction()
+    {
+        SceneManager.LoadScene("TestScene1");
+    }
+
+    IEnumerator SlidersAppearingTime()
+    {
+        yield return new WaitForSeconds(2.25f);
+        sliderMaster.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        sliderNarration.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        sliderMusic.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        sliderSfx.SetActive(true);
+
+    }
+
+    IEnumerator SlidersDeappearingTime()
+    {
+        yield return new WaitForSeconds(.25f);
+        sliderMaster.SetActive(false);
+        yield return new WaitForSeconds(.25f);
+        sliderNarration.SetActive(false);
+        yield return new WaitForSeconds(.25f);
+        sliderMusic.SetActive(false);
+        yield return new WaitForSeconds(.25f);
+        sliderSfx.SetActive(false);
+        yield return new WaitForSeconds(.25f);
+        optionsPanel.SetActive(false);
     }
 }
