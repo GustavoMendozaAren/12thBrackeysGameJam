@@ -165,15 +165,15 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator SlidersDeappearingTime()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.20f);
         sliderMaster.SetActive(false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.20f);
         sliderNarration.SetActive(false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.20f);
         sliderMusic.SetActive(false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.20f);
         sliderSfx.SetActive(false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.20f);
         optionsPanel.SetActive(false);
     }
 }
