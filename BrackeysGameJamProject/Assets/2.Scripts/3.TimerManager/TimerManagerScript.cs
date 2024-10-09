@@ -12,7 +12,7 @@ public class TimerManagerScript : MonoBehaviour
     [SerializeField] private GameObject manecillaObj;
 
     private int dayTimeMin = 12;
-    private int dayTimeSec = 0;
+    //private int dayTimeSec = 0;
 
     private float rotationAmount = 90f;
     public int DayTimeMin 
@@ -42,7 +42,7 @@ public class TimerManagerScript : MonoBehaviour
     private void ActualizarTexto()
     {
         //timerTxt.text = dayTimeMin + "H";
-        timerTxt.text = string.Format("{0:00}:{1:00}", dayTimeMin, dayTimeSec);
+        timerTxt.text = string.Format($"{dayTimeMin}");
     }
 
     public void RestartDayHours()

@@ -14,6 +14,9 @@ public class NightTimeTimer : MonoBehaviour
 
     private float timerSpeed = 4f;
 
+    int minutes;
+    int seconds;
+
     // Manecillas Variables
     private float nightCounter = -90f;
     private bool nightTimerIsRunning = false;
@@ -34,7 +37,8 @@ public class NightTimeTimer : MonoBehaviour
                 // Detener el temporizador y llamar a la función.
                 timeRemaining = 0;
                 timerIsRunning = false;
-                UpdateTimerText();
+
+                nightTimerText.text = string.Format($"{minutes + 1}");
                 OnTimerEnd();
             }
         }
@@ -48,11 +52,11 @@ public class NightTimeTimer : MonoBehaviour
     void UpdateTimerText()
     {
         // Obtener minutos y segundos restantes.
-        int minutes = Mathf.FloorToInt(timeRemaining / 60);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        minutes = Mathf.FloorToInt(timeRemaining / 60);
+        seconds = Mathf.FloorToInt(timeRemaining % 60);
 
         // Actualizar el texto de la UI.
-        nightTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        nightTimerText.text = string.Format($"{minutes + 1}");
     }
 
     private void ActualizarManecillasNight()

@@ -159,7 +159,7 @@ public class ColocarTorreta : MonoBehaviour
         StaticVariables.cantidadBuildersDisponibles -= number;
 
         TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+        spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
     }
 
     void ActualizarPanelDeConstruccion()
