@@ -6,4 +6,6 @@ public static class StaticVariables
     public static int cantidadBuildersTotales = 0;
     public static int cantidadBuildersDisponibles = 0;
 
+    public static int enemiesSpeed = 1;
+
 }
