@@ -42,6 +42,7 @@ public class NightTimeTimer : MonoBehaviour
                 OnTimerEnd();
             }
         }
+
         if (nightTimerIsRunning)
         {
             ActualizarManecillasNight();
@@ -98,6 +99,7 @@ public class NightTimeTimer : MonoBehaviour
         timerSpeed = 4f;
         timeRemaining = 12 * 60;
         endNightBttn.SetActive(false);
+        nightCounter = -90f;
         timerIsRunning = true;
         nightTimerIsRunning = true;
         UpdateTimerText();
