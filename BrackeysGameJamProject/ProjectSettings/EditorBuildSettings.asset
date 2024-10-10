@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1.Scenes/GameplayScene.unity
     guid: 9d0c8e80042c4bd498e277383841bfeb
+  - enabled: 1
+    path: Assets/1.Scenes/TestTorretas.unity
+    guid: 3bd569a9eb5689449b183fbb68f3e77f
   m_configObjects: {}

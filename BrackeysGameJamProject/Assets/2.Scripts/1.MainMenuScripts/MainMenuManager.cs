@@ -147,7 +147,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void PlayGameFunction()
     {
-        SceneManager.LoadScene("TestScene1");
+        SceneManager.LoadScene("TestTorretas");
     }
 
     IEnumerator SlidersAppearingTime()
