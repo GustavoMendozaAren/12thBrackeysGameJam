@@ -10,9 +10,12 @@ public class ColocarTorreta : MonoBehaviour
     bool modoContruccion = false;
     bool faroTower = false;
     bool archerTower = false;
+    bool panelConstruccionCerrado = false;
 
     [Header("PANEL DE CONSTRUCCION")]
     [SerializeField] private GameObject panelDeCosntruccion;
+    [SerializeField] private GameObject panelDeCosntruccionCerrado;
+    [SerializeField] private GameObject panelDeCosntruccionAbierto;
 
     [Header("TORRETAS")]
     [SerializeField] private GameObject torretaPrefab;
@@ -32,8 +35,15 @@ public class ColocarTorreta : MonoBehaviour
 
     private GameObject previewActual = null;
 
+    TextMeshProUGUI spareBuildersTxt;
+
     // Lista para almacenar las posiciones de las torretas ya colocadas
     private List<Vector3Int> posicionesDeTorretas = new List<Vector3Int>();
+
+    private void Start()
+    {
+        spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+    }
 
     void Update()
     {
@@ -158,7 +168,7 @@ public class ColocarTorreta : MonoBehaviour
     {
         StaticVariables.cantidadBuildersDisponibles -= number;
 
-        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+        
         spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
     }
 
@@ -167,10 +177,30 @@ public class ColocarTorreta : MonoBehaviour
         if(timerManager.DayTimeMin < 3 || StaticVariables.cantidadBuildersDisponibles < 1)
         {
             panelDeCosntruccion.SetActive(false);
+            panelConstruccionCerrado = true;
         }
         else
         {
             panelDeCosntruccion.SetActive(true);
+            panelConstruccionCerrado = false;
+        }
+    }
+
+    public void CerrarPanelConstruccion()
+    {
+        if (!panelConstruccionCerrado)
+        {
+            panelDeCosntruccionCerrado.SetActive(true);
+            panelDeCosntruccionAbierto.SetActive(false);
+        }
+    }
+
+    public void AbrirPanelConstruccion()
+    {
+        if (!panelConstruccionCerrado)
+        {
+            panelDeCosntruccionCerrado.SetActive(false);
+            panelDeCosntruccionAbierto.SetActive(true);
         }
     }
 }
