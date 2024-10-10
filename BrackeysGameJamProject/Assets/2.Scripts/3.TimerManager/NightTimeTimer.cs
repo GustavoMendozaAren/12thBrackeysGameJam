@@ -9,9 +9,8 @@ public class NightTimeTimer : MonoBehaviour
     [SerializeField] private GameObject manecillaNightObj;
     [SerializeField] private GameObject endNightBttn;
 
-    private float timeRemaining = 130f;
+    private float timeRemaining = 190f;
     private bool timerIsRunning = false;
-
     private float timerSpeed = 1f;
 
     int minutes;
@@ -38,7 +37,7 @@ public class NightTimeTimer : MonoBehaviour
 
     void UpdateTimerText()
     {
-        minutes = (int)timeRemaining / 10;
+        minutes = (int)timeRemaining / 15;
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime * timerSpeed;
@@ -80,20 +79,23 @@ public class NightTimeTimer : MonoBehaviour
     {
         timerSpeed = 1f;
         nighttimerSpeed = 1f;
+        StaticVariables.enemiesSpeed = 1;
     }
 
     public void DoubleSpeedBttn()
     {
-        timerSpeed = 8f;
+        timerSpeed = 12f;
         nighttimerSpeed = 12f;
+        StaticVariables.enemiesSpeed = 12;
     }
 
     public void ResertNightTimerBttn()
     {
         timerSpeed = 1f;
         nighttimerSpeed = 1f;
+        StaticVariables.enemiesSpeed = 1;
 
-        timeRemaining = 130f;
+        timeRemaining = 190f;
         endNightBttn.SetActive(false);
         nightCounter = -90f;
         timerIsRunning = true;
