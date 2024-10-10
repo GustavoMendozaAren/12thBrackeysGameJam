@@ -92,7 +92,7 @@ public class TorretsStats : MonoBehaviour
 
         
         TextMeshProUGUI spareAldeanosTxt = GameObject.Find("AldeanosDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareAldeanosTxt.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
+        spareAldeanosTxt.text = "" + StaticVariables.cantidadAldeanosDisponibles;
     }
 
     public void ActualizarAldeanosMuertos()
@@ -124,6 +124,6 @@ public class TorretsStats : MonoBehaviour
         damage -= (number * 10);
 
         TextMeshProUGUI aldeanosTotalesTxt = GameObject.Find("Aldeanos_Txt").GetComponent<TextMeshProUGUI>();
-        aldeanosTotalesTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales + "/10";
+        aldeanosTotalesTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
     }
 }

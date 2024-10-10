@@ -75,11 +75,11 @@ public class CastilloManager : MonoBehaviour
         {
             timerManagerCastillo.DayTimeMin -= 2;
             StaticVariables.cantidadAldeanosTotales++;
-            aldenosTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales + "/10";
+            aldenosTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
             CheckTimeForButtons();
 
             StaticVariables.cantidadAldeanosDisponibles++;
-            spareAldeanos.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
+            spareAldeanos.text = "" + StaticVariables.cantidadAldeanosDisponibles;
         }
         else
         {
@@ -93,11 +93,11 @@ public class CastilloManager : MonoBehaviour
         {
             timerManagerCastillo.DayTimeMin -= 2;
             StaticVariables.cantidadBuildersTotales++;
-            buildersTxt.text = "BUILDERS: " + StaticVariables.cantidadBuildersTotales + "/5";
+            buildersTxt.text = "" + StaticVariables.cantidadBuildersTotales;
             CheckTimeForButtons();
 
             StaticVariables.cantidadBuildersDisponibles++;
-            spareBuilders.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+            spareBuilders.text = "" + StaticVariables.cantidadBuildersDisponibles;
         }
         else
         {
