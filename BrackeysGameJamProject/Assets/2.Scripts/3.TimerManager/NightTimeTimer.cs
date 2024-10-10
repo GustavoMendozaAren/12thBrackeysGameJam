@@ -9,10 +9,10 @@ public class NightTimeTimer : MonoBehaviour
     [SerializeField] private GameObject manecillaNightObj;
     [SerializeField] private GameObject endNightBttn;
 
-    private float timeRemaining = 12f * 60f;
+    private float timeRemaining = 130f;
     private bool timerIsRunning = false;
 
-    private float timerSpeed = 4f;
+    private float timerSpeed = 1f;
 
     int minutes;
     int seconds;
@@ -26,21 +26,7 @@ public class NightTimeTimer : MonoBehaviour
     {
         if (timerIsRunning)
         {
-            if (timeRemaining > 0)
-            {
-                // Restar el tiempo transcurrido.
-                timeRemaining -= Time.deltaTime * timerSpeed;
-                UpdateTimerText();            
-            }
-            else
-            {
-                // Detener el temporizador y llamar a la función.
-                timeRemaining = 0;
-                timerIsRunning = false;
-
-                nightTimerText.text = string.Format($"{minutes + 1}");
-                OnTimerEnd();
-            }
+            UpdateTimerText();
         }
 
         if (nightTimerIsRunning)
@@ -52,12 +38,20 @@ public class NightTimeTimer : MonoBehaviour
 
     void UpdateTimerText()
     {
-        // Obtener minutos y segundos restantes.
-        minutes = Mathf.FloorToInt(timeRemaining / 60);
-        seconds = Mathf.FloorToInt(timeRemaining % 60);
-
-        // Actualizar el texto de la UI.
-        nightTimerText.text = string.Format($"{minutes + 1}");
+        minutes = (int)timeRemaining / 10;
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime * timerSpeed;
+            nightTimerText.text = string.Format($"{minutes}");
+        }
+        else
+        {
+            timeRemaining = 0;
+            timerIsRunning = false;
+            nightTimerText.text = string.Format($"{minutes}");
+            OnTimerEnd();
+        }
+        
     }
 
     private void ActualizarManecillasNight()
@@ -84,20 +78,22 @@ public class NightTimeTimer : MonoBehaviour
 
     public void NormalSpeedBttn()
     {
-        timerSpeed = 4f;
+        timerSpeed = 1f;
         nighttimerSpeed = 1f;
     }
 
     public void DoubleSpeedBttn()
     {
-        timerSpeed = 48f;
+        timerSpeed = 8f;
         nighttimerSpeed = 12f;
     }
 
     public void ResertNightTimerBttn()
     {
-        timerSpeed = 4f;
-        timeRemaining = 12 * 60;
+        timerSpeed = 1f;
+        nighttimerSpeed = 1f;
+
+        timeRemaining = 130f;
         endNightBttn.SetActive(false);
         nightCounter = -90f;
         timerIsRunning = true;
