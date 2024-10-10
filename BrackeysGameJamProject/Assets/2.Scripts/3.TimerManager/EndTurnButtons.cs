@@ -37,7 +37,7 @@ public class EndTurnButtons : MonoBehaviour
 
         StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
         TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+        spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
 
         ActivarCollidersTorres();
 
