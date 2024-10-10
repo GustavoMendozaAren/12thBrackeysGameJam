@@ -24,18 +24,29 @@ public class PauseManager : MonoBehaviour
     {
         SceneManager.LoadScene("TestTorretas");
         Time.timeScale = 1f;
+        ResetVariables();
     }
 
     public void MainMenuBttn()
     {
         SceneManager.LoadScene("MainMenuScene");
         Time.timeScale = 1f;
+        ResetVariables();
     }
 
     public void OptionsBttn()
     {
 
     }
+
+    private void ResetVariables()
+    {
+        StaticVariables.diasTranscurridos = 1;
+        StaticVariables.cantidadAldeanosTotales = 0;
+        StaticVariables.cantidadAldeanosDisponibles = 0;
+        StaticVariables.cantidadBuildersTotales = 0;
+        StaticVariables.cantidadBuildersDisponibles = 0;
+}
 
     public void CloseControlsInfoPanel()
     {
