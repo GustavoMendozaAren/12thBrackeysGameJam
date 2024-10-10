@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c3979c7bdd1fa2846ba657d9d51b193b, type: 2}
-  m_sharedMaterial: {fileID: 6362661890003505247, guid: c3979c7bdd1fa2846ba657d9d51b193b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dbad1a642515e7a48a3df23ee8937142, type: 2}
+  m_sharedMaterial: {fileID: -2672607570266161419, guid: dbad1a642515e7a48a3df23ee8937142, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -340,8 +340,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1896,7 +1896,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c3979c7bdd1fa2846ba657d9d51b193b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dbad1a642515e7a48a3df23ee8937142, type: 2}
   m_sharedMaterial: {fileID: 6362661890003505247, guid: c3979c7bdd1fa2846ba657d9d51b193b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1921,8 +1921,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &482699856
@@ -5948,7 +5948,7 @@ MonoBehaviour:
   - {fileID: 1302668218}
   enemyCount: 5
   spawnPoint: {fileID: 1217100150}
-  spawnDelay: 1
+  spawnDelay: 2
 --- !u!1 &1245576835
 GameObject:
   m_ObjectHideFlags: 0
