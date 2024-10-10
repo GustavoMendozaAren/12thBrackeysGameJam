@@ -15,7 +15,12 @@ public class EndTurnButtons : MonoBehaviour
     private bool isFadingUp = false;
 
     [SerializeField] private TextMeshProUGUI daysTxt;
+    TextMeshProUGUI spareBuildersTxt;
 
+    private void Start()
+    {
+        spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+    }
 
     private void Update()
     {
@@ -36,7 +41,7 @@ public class EndTurnButtons : MonoBehaviour
         isFadingDown = true;
 
         StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
-        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
+        
         spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
 
         ActivarCollidersTorres();
