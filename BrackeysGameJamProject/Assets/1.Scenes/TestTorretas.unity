@@ -6927,7 +6927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1113954989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8325,63 +8325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387385234}
   m_CullTransparentMesh: 1
---- !u!1001 &1400535733
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.525
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.50160813
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290494470844817183, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5382206992029074535, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
-      propertyPath: m_Name
-      value: FaroPlaceHolder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e701d6caaab637241b909c297eb9ac65, type: 3}
 --- !u!1 &1402790223
 GameObject:
   m_ObjectHideFlags: 0
@@ -10213,7 +10156,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_TargetDisplay: 0
 --- !u!224 &1890188277
 RectTransform:
@@ -21210,4 +21153,3 @@ SceneRoots:
   - {fileID: 1217100150}
   - {fileID: 366019117}
   - {fileID: 792882238}
-  - {fileID: 1400535733}
