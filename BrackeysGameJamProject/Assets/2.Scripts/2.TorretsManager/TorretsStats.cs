@@ -5,7 +5,9 @@ using TMPro;
 
 public class TorretsStats : MonoBehaviour
 {
-    [SerializeField] private GameObject panelEstadisticas;
+    [Header ("PANELES")]
+    [SerializeField] private GameObject openedArcherInfoPanel;
+    [SerializeField] private GameObject closedArcherInfoPanel;
     [SerializeField] private GameObject rangoSprite;
 
     [Header("TEXTOS")]
@@ -19,6 +21,7 @@ public class TorretsStats : MonoBehaviour
 
     private bool estaEnRangoDeFaro = false;
 
+    /*
     void OnMouseDown()
     {
         panelEstadisticas.SetActive(!panelEstadisticas.activeSelf);
@@ -30,6 +33,7 @@ public class TorretsStats : MonoBehaviour
         panelEstadisticas.SetActive(true);
         rangoSprite.SetActive(true);
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -125,5 +129,19 @@ public class TorretsStats : MonoBehaviour
 
         TextMeshProUGUI aldeanosTotalesTxt = GameObject.Find("Aldeanos_Txt").GetComponent<TextMeshProUGUI>();
         aldeanosTotalesTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
+    }
+
+    public void InfoOpenArcherBttn()
+    {
+        openedArcherInfoPanel.SetActive(true);
+        closedArcherInfoPanel.SetActive(false);
+        rangoSprite.SetActive(true);
+    }
+
+    public void InfoCloseArcherBttn()
+    {
+        openedArcherInfoPanel.SetActive(false);
+        closedArcherInfoPanel.SetActive(true);
+        rangoSprite.SetActive(false);
     }
 }
