@@ -6,7 +6,11 @@ using TMPro;
 public class CastilloManager : MonoBehaviour
 {
     [Header("PANELES LLAMADOS")]
-    [SerializeField] private GameObject panelCreacionPersonajes;
+    //[SerializeField] private GameObject panelCreacionPersonajes;
+    [SerializeField] private GameObject openWarriorInfoPanel;
+    [SerializeField] private GameObject openBuilderInfoPanel;
+    [SerializeField] private GameObject castilloInfoOpenImg;
+    [SerializeField] private GameObject castilloInfoCloseImg;
     private SpriteRenderer spriteRenderer;
 
     [Header("TEXTOS")]
@@ -27,12 +31,10 @@ public class CastilloManager : MonoBehaviour
 
     private void Update()
     {
-        if (timerManagerCastillo.DayTimeMin < 2)
-            panelCreacionPersonajes.SetActive(false);
-        else
-            return;
+        CheckTimeForButtons();
     }
 
+    /*
     void OnMouseDown()
     {
         CheckTimeForButtons();
@@ -42,7 +44,9 @@ public class CastilloManager : MonoBehaviour
         else
             MostrarPanelCreacion();
     }
+    */
 
+    /*
     private void OnMouseEnter()
     {
         CambiarAlpha(0.8f);
@@ -51,11 +55,6 @@ public class CastilloManager : MonoBehaviour
     void OnMouseExit()
     {
         CambiarAlpha(1f);  // Cambia el alpha de vuelta a 1
-    }
-
-    void MostrarPanelCreacion()
-    {
-        panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf);
     }
 
     // Método para cambiar el alpha del color del SpriteRenderer
@@ -67,6 +66,26 @@ public class CastilloManager : MonoBehaviour
             colorActual.a = alphaValue;  // Cambia el valor del alpha
             spriteRenderer.color = colorActual;  // Asigna el nuevo color
         }
+    }*/
+    /*
+    void MostrarPanelCreacion()
+    {
+        panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf);
+    }
+    */
+
+    void CheckTimeForButtons()
+    {
+        if (timerManagerCastillo.DayTimeMin < 2)
+        {
+            castilloInfoOpenImg.SetActive(false);
+            castilloInfoCloseImg.SetActive(true);
+        }
+        else
+        {
+            return;
+        }
+            
     }
 
     public void AldenosCreationBttn()
@@ -105,11 +124,26 @@ public class CastilloManager : MonoBehaviour
         }
     }
 
-    void CheckTimeForButtons()
+    public void CastilloInfoOpen()
     {
-        if (timerManagerCastillo.DayTimeMin < 2)
-            panelCreacionPersonajes.SetActive(false);
-        else
-            return;
+        castilloInfoOpenImg.SetActive(true);
+        castilloInfoCloseImg.SetActive(false);
+    }
+
+    public void CastilloInfoClose()
+    {
+        castilloInfoOpenImg.SetActive(false);
+        castilloInfoCloseImg.SetActive(true);
+    }
+
+    public void OpenWarriorInfo()
+    {
+        openWarriorInfoPanel.SetActive(!openWarriorInfoPanel.activeSelf);
+    }
+
+    public void OpenBuilderInfo()
+    {
+        openBuilderInfoPanel.SetActive(!openBuilderInfoPanel.activeSelf);
+        
     }
 }

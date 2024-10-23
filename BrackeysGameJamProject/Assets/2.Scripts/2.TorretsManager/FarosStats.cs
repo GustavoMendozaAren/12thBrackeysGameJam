@@ -7,10 +7,10 @@ using TMPro;
 public class FarosStats : MonoBehaviour
 {
     [Header("PANELES LLAMADOS")]
-    [SerializeField] private GameObject panelEstadisticas;
+    [SerializeField] private GameObject openedInfoPanel;
+    [SerializeField] private GameObject closedInfoPanel;
 
     [Header("TEXTOS LLAMADOS")]
-    [SerializeField] private TextMeshProUGUI cantidadDeFuelTxt;
     [SerializeField] private TextMeshProUGUI fuelTxt;
     private int fuel = 3;
 
@@ -18,7 +18,7 @@ public class FarosStats : MonoBehaviour
 
     public CircleCollider2D farosCollider;
 
-    void OnMouseDown()
+    /*void OnMouseDown()
     {
         panelEstadisticas.SetActive(!panelEstadisticas.activeSelf);
     }
@@ -27,6 +27,7 @@ public class FarosStats : MonoBehaviour
     {
         panelEstadisticas.SetActive(true);
     }
+    */
 
     public void ActualizarFarosLight()
     {
@@ -67,10 +68,21 @@ public class FarosStats : MonoBehaviour
         }
     }
 
+    public void InfoOpenPanelBtttn()
+    {
+        openedInfoPanel.SetActive(true);
+        closedInfoPanel.SetActive(false);
+    }
+
+    public void InfoClosePanelBtttn()
+    {
+        openedInfoPanel.SetActive(false);
+        closedInfoPanel.SetActive(true);
+    }
+
     void ActualizarTextosFuel()
     {
-        fuelTxt.text = "FUEL: " + fuel;
-        cantidadDeFuelTxt.text = fuel + "/3";
+        fuelTxt.text = fuel + "/3";
     }
 
 }
