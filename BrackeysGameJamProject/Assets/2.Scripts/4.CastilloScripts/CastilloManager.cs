@@ -10,7 +10,6 @@ public class CastilloManager : MonoBehaviour
     [SerializeField] private GameObject openWarriorInfoPanel;
     [SerializeField] private GameObject openBuilderInfoPanel;
     [SerializeField] private GameObject castilloInfoOpenImg;
-    [SerializeField] private GameObject castilloInfoCloseImg;
     private SpriteRenderer spriteRenderer;
 
     [Header("TEXTOS")]
@@ -79,7 +78,6 @@ public class CastilloManager : MonoBehaviour
         if (timerManagerCastillo.DayTimeMin < 2)
         {
             castilloInfoOpenImg.SetActive(false);
-            castilloInfoCloseImg.SetActive(true);
         }
         else
         {
@@ -127,13 +125,11 @@ public class CastilloManager : MonoBehaviour
     public void CastilloInfoOpen()
     {
         castilloInfoOpenImg.SetActive(true);
-        castilloInfoCloseImg.SetActive(false);
     }
 
     public void CastilloInfoClose()
     {
         castilloInfoOpenImg.SetActive(false);
-        castilloInfoCloseImg.SetActive(true);
     }
 
     public void OpenWarriorInfo()
