@@ -8,6 +8,10 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject controlsInfoPanel;
 
+    private void Start()
+    {
+        Time.timeScale = 0f;
+    }
     public void PauseBttn()
     {
         pausePanel.SetActive(true);
@@ -51,5 +55,6 @@ public class PauseManager : MonoBehaviour
     public void CloseControlsInfoPanel()
     {
         controlsInfoPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

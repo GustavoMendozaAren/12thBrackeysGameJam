@@ -15,6 +15,7 @@ public class EndTurnButtons : MonoBehaviour
     private bool isFadingUp = false;
 
     [SerializeField] private TextMeshProUGUI daysTxt;
+    [SerializeField] private GameObject daysTxtObj;
     TextMeshProUGUI spareBuildersTxt;
 
     private void Start()
@@ -46,6 +47,7 @@ public class EndTurnButtons : MonoBehaviour
 
         ActivarCollidersTorres();
 
+        daysTxtObj.SetActive(false);
     }
 
     public void EndNightButton()
@@ -60,6 +62,7 @@ public class EndTurnButtons : MonoBehaviour
 
         Invoke(nameof(DesactivarColliderTorres), 1f);
 
+        daysTxtObj.SetActive(true);
         StaticVariables.diasTranscurridos++;
         daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
     }
