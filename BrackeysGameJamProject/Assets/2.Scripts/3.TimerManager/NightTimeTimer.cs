@@ -80,6 +80,8 @@ public class NightTimeTimer : MonoBehaviour
         timerSpeed = 1f;
         nighttimerSpeed = 1f;
         StaticVariables.enemiesSpeed = 1;
+        StaticVariables.proyectileSpeed = 10f;
+        StaticVariables.rateOfFire = 1f;
     }
 
     public void DoubleSpeedBttn()
@@ -87,6 +89,8 @@ public class NightTimeTimer : MonoBehaviour
         timerSpeed = 12f;
         nighttimerSpeed = 12f;
         StaticVariables.enemiesSpeed = 12;
+        StaticVariables.proyectileSpeed = 60f;
+        StaticVariables.rateOfFire = .12f;
     }
 
     public void ResertNightTimerBttn()
@@ -94,6 +98,8 @@ public class NightTimeTimer : MonoBehaviour
         timerSpeed = 1f;
         nighttimerSpeed = 1f;
         StaticVariables.enemiesSpeed = 1;
+        StaticVariables.proyectileSpeed = 10f;
+        StaticVariables.rateOfFire = 1f;
 
         timeRemaining = 190f;
         endNightBttn.SetActive(false);
