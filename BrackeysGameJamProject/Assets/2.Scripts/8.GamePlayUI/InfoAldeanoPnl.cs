@@ -8,6 +8,13 @@ public class InfoAldeanoPnl : MonoBehaviour
     [SerializeField] private GameObject panelInfoFaro;
     [SerializeField] private GameObject panelInfoArqueros;
 
+    [SerializeField] private Animator animator;
+
+    private void Start()
+    {
+        animator = openPanelInfo.GetComponent<Animator>();
+    }
+
     public void InfoFarosBttn()
     {
         panelInfoFaro.SetActive(!panelInfoFaro.activeSelf);
@@ -20,11 +27,11 @@ public class InfoAldeanoPnl : MonoBehaviour
 
     public void OpenPanelBttn()
     {
-        openPanelInfo.SetActive(true);
+        animator.SetBool("InfoActive", true);
     }
 
     public void ClosePanelBttn()
     {
-        openPanelInfo.SetActive(false);
+        animator.SetBool("InfoActive", false);
     }
 }

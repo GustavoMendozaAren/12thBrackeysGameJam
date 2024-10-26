@@ -4926,13 +4926,14 @@ GameObject:
   - component: {fileID: 774629736}
   - component: {fileID: 774629738}
   - component: {fileID: 774629737}
+  - component: {fileID: 774629739}
   m_Layer: 5
   m_Name: CiudadanosInfo-Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &774629736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4950,7 +4951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1616}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774629737
@@ -4991,6 +4992,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774629735}
   m_CullTransparentMesh: 1
+--- !u!95 &774629739
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774629735}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d39f4484f8163b469b6bb966692a9c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &792882234
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,7 +9669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1113954989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25997,6 +26019,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39582648903050131, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 309196b0e0c62964bb5d076247c21be2, type: 3}
+    - target: {fileID: 39582648903050131, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 489104379064880922, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: defeatedPanel
       value: 
@@ -26052,6 +26082,14 @@ PrefabInstance:
     - target: {fileID: 4375687057975618716, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700080766244828742, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 7.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6700080766244828742, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 7.52
       objectReference: {fileID: 0}
     - target: {fileID: 6884676142979422853, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: m_Name
