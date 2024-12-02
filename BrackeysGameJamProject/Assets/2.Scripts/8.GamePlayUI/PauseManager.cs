@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject controlsInfoPanel;
+
+    [Header("TUTORIAL PANELS")]
+    [SerializeField] private GameObject[] tutPanel;
 
     private void Start()
     {
@@ -50,11 +52,47 @@ public class PauseManager : MonoBehaviour
         StaticVariables.cantidadAldeanosDisponibles = 0;
         StaticVariables.cantidadBuildersTotales = 0;
         StaticVariables.cantidadBuildersDisponibles = 0;
-}
+    }
 
-    public void CloseControlsInfoPanel()
+
+    public void ContinueTut0Bttn()
     {
-        controlsInfoPanel.SetActive(false);
+        tutPanel[0].SetActive(false);
+        tutPanel[1].SetActive(true);
+    }
+
+    public void BackTutTo0Bttn()
+    {
+        tutPanel[0].SetActive(true);
+        tutPanel[1].SetActive(false);
+    }
+
+    public void ContinueTut1Bttn()
+    {
+        tutPanel[1].SetActive(false);
+        tutPanel[2].SetActive(true);
+    }
+
+    public void BackTutTo1Bttn()
+    {
+        tutPanel[1].SetActive(true);
+        tutPanel[2].SetActive(false);
+    }
+
+    public void ContinueTut2Bttn()
+    {
+        tutPanel[2].SetActive(false);
+        tutPanel[3].SetActive(true);
+    }
+    public void BackTutTo2Bttn()
+    {
+        tutPanel[2].SetActive(true);
+        tutPanel[3].SetActive(false);
+    }
+
+    public void ContinueTut3Bttn()
+    {
+        tutPanel[3].SetActive(false);
         Time.timeScale = 1f;
     }
 }
