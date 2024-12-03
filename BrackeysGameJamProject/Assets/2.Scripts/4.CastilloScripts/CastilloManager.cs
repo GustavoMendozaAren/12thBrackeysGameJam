@@ -9,6 +9,7 @@ public class CastilloManager : MonoBehaviour
     //[SerializeField] private GameObject panelCreacionPersonajes;
     [SerializeField] private GameObject openWarriorInfoPanel;
     [SerializeField] private GameObject openBuilderInfoPanel;
+    [SerializeField] private GameObject textNeedBuilders;
     [SerializeField] private GameObject castilloInfoOpenImg;
     [SerializeField] private Animator pestProdAnim;
     private SpriteRenderer spriteRenderer;
@@ -143,5 +144,17 @@ public class CastilloManager : MonoBehaviour
     {
         openBuilderInfoPanel.SetActive(!openBuilderInfoPanel.activeSelf);
         
+    }
+
+    public void NeedBuildersText()
+    {
+        StartCoroutine(TextNeedB());
+    }
+
+    IEnumerator TextNeedB()
+    {
+        textNeedBuilders.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        textNeedBuilders.SetActive(false);
     }
 }
