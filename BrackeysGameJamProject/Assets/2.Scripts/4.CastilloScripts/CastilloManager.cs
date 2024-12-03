@@ -10,6 +10,7 @@ public class CastilloManager : MonoBehaviour
     [SerializeField] private GameObject openWarriorInfoPanel;
     [SerializeField] private GameObject openBuilderInfoPanel;
     [SerializeField] private GameObject castilloInfoOpenImg;
+    [SerializeField] private Animator pestProdAnim;
     private SpriteRenderer spriteRenderer;
 
     [Header("TEXTOS")]
@@ -26,6 +27,7 @@ public class CastilloManager : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        pestProdAnim = castilloInfoOpenImg.GetComponent<Animator>();
     }
 
     private void Update()
@@ -124,12 +126,12 @@ public class CastilloManager : MonoBehaviour
 
     public void CastilloInfoOpen()
     {
-        castilloInfoOpenImg.SetActive(true);
+        pestProdAnim.SetBool("ProdIn", true);
     }
 
     public void CastilloInfoClose()
     {
-        castilloInfoOpenImg.SetActive(false);
+        pestProdAnim.SetBool("ProdIn", false);
     }
 
     public void OpenWarriorInfo()
