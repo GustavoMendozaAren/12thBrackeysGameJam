@@ -16,12 +16,7 @@ public class EndTurnButtons : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI daysTxt;
     [SerializeField] private GameObject daysTxtObj;
-    TextMeshProUGUI spareBuildersTxt;
-
-    private void Start()
-    {
-        spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-    }
+    [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
     private void Update()
     {
