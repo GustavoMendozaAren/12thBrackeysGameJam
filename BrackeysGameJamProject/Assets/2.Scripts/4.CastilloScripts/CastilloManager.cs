@@ -9,8 +9,9 @@ public class CastilloManager : MonoBehaviour
     //[SerializeField] private GameObject panelCreacionPersonajes;
     [SerializeField] private GameObject openWarriorInfoPanel;
     [SerializeField] private GameObject openBuilderInfoPanel;
+    [SerializeField] private GameObject textNeedBuilders;
     [SerializeField] private GameObject castilloInfoOpenImg;
-    [SerializeField] private GameObject castilloInfoCloseImg;
+    [SerializeField] private Animator pestProdAnim;
     private SpriteRenderer spriteRenderer;
 
     [Header("TEXTOS")]
@@ -27,6 +28,7 @@ public class CastilloManager : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        pestProdAnim = castilloInfoOpenImg.GetComponent<Animator>();
     }
 
     private void Update()
@@ -79,7 +81,6 @@ public class CastilloManager : MonoBehaviour
         if (timerManagerCastillo.DayTimeMin < 2)
         {
             castilloInfoOpenImg.SetActive(false);
-            castilloInfoCloseImg.SetActive(true);
         }
         else
         {
@@ -126,14 +127,12 @@ public class CastilloManager : MonoBehaviour
 
     public void CastilloInfoOpen()
     {
-        castilloInfoOpenImg.SetActive(true);
-        castilloInfoCloseImg.SetActive(false);
+        pestProdAnim.SetBool("ProdIn", true);
     }
 
     public void CastilloInfoClose()
     {
-        castilloInfoOpenImg.SetActive(false);
-        castilloInfoCloseImg.SetActive(true);
+        pestProdAnim.SetBool("ProdIn", false);
     }
 
     public void OpenWarriorInfo()
@@ -145,5 +144,17 @@ public class CastilloManager : MonoBehaviour
     {
         openBuilderInfoPanel.SetActive(!openBuilderInfoPanel.activeSelf);
         
+    }
+
+    public void NeedBuildersText()
+    {
+        StartCoroutine(TextNeedB());
+    }
+
+    IEnumerator TextNeedB()
+    {
+        textNeedBuilders.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        textNeedBuilders.SetActive(false);
     }
 }

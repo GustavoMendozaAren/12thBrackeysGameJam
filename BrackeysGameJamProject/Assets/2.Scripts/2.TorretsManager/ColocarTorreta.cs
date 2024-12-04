@@ -13,9 +13,7 @@ public class ColocarTorreta : MonoBehaviour
     bool panelConstruccionCerrado = false;
 
     [Header("PANEL DE CONSTRUCCION")]
-    [SerializeField] private GameObject panelDeCosntruccion;
-    [SerializeField] private GameObject panelDeCosntruccionCerrado;
-    [SerializeField] private GameObject panelDeCosntruccionAbierto;
+    [SerializeField] private GameObject botonesActivos;
 
     [Header("TORRETAS")]
     [SerializeField] private GameObject torretaPrefab;
@@ -35,15 +33,10 @@ public class ColocarTorreta : MonoBehaviour
 
     private GameObject previewActual = null;
 
-    TextMeshProUGUI spareBuildersTxt;
+    [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
     // Lista para almacenar las posiciones de las torretas ya colocadas
     private List<Vector3Int> posicionesDeTorretas = new List<Vector3Int>();
-
-    private void Start()
-    {
-        spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-    }
 
     void Update()
     {
@@ -176,31 +169,14 @@ public class ColocarTorreta : MonoBehaviour
     {
         if(timerManager.DayTimeMin < 3 || StaticVariables.cantidadBuildersDisponibles < 1)
         {
-            panelDeCosntruccion.SetActive(false);
+            botonesActivos.SetActive(false);
             panelConstruccionCerrado = true;
         }
         else
         {
-            panelDeCosntruccion.SetActive(true);
+            botonesActivos.SetActive(true);
             panelConstruccionCerrado = false;
         }
     }
 
-    public void CerrarPanelConstruccion()
-    {
-        if (!panelConstruccionCerrado)
-        {
-            panelDeCosntruccionCerrado.SetActive(true);
-            panelDeCosntruccionAbierto.SetActive(false);
-        }
-    }
-
-    public void AbrirPanelConstruccion()
-    {
-        if (!panelConstruccionCerrado)
-        {
-            panelDeCosntruccionCerrado.SetActive(false);
-            panelDeCosntruccionAbierto.SetActive(true);
-        }
-    }
 }
