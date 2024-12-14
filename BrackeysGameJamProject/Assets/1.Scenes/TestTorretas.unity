@@ -5366,6 +5366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicGhostEnemyPB (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26dcec381b8addc4a9c955e16936655c, type: 3}
     - target: {fileID: 8386686050179825461, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.51
@@ -5406,6 +5410,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608727796150602012, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5fdf39fe59a25445a696b8dc8c7f3e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5431,7 +5439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04599197c2c0c2f428f4e4a5ca6a061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPointX: 20.51
   endPointX: -17
   moveSpeed: 0.3
 --- !u!1 &747530685
@@ -10504,6 +10511,10 @@ PrefabInstance:
       value: BasicGhostEnemyPB (3)
       objectReference: {fileID: 0}
     - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26dcec381b8addc4a9c955e16936655c, type: 3}
+    - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_SortingOrder
       value: 9
       objectReference: {fileID: 0}
@@ -10547,6 +10558,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608727796150602012, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5fdf39fe59a25445a696b8dc8c7f3e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10572,7 +10587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04599197c2c0c2f428f4e4a5ca6a061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPointX: 20.95
   endPointX: -17
   moveSpeed: 0.3
 --- !u!1 &1098840341
@@ -16210,6 +16224,10 @@ PrefabInstance:
       value: BasicGhostEnemyPB (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26dcec381b8addc4a9c955e16936655c, type: 3}
+    - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_SortingOrder
       value: 9
       objectReference: {fileID: 0}
@@ -16253,6 +16271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608727796150602012, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5fdf39fe59a25445a696b8dc8c7f3e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16278,7 +16300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04599197c2c0c2f428f4e4a5ca6a061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPointX: 20.06
   endPointX: -17
   moveSpeed: 0.3
 --- !u!1 &1789792011
@@ -17030,7 +17051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04599197c2c0c2f428f4e4a5ca6a061a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPointX: 17.69
   endPointX: -17
   moveSpeed: 0.3
 --- !u!1 &1874420866
@@ -30173,6 +30193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicGhostEnemyPB
       objectReference: {fileID: 0}
+    - target: {fileID: 7687767945858026112, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26dcec381b8addc4a9c955e16936655c, type: 3}
     - target: {fileID: 8386686050179825461, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.69
@@ -30213,6 +30237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608727796150602012, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5fdf39fe59a25445a696b8dc8c7f3e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
