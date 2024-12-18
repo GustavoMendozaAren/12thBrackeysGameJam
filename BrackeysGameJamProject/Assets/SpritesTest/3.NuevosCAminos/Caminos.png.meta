@@ -155,7 +155,7 @@ TextureImporter:
       name: Caminos_2
       rect:
         serializedVersion: 2
-        x: 1755
+        x: 1754
         y: 222
         width: 410
         height: 410
@@ -176,7 +176,7 @@ TextureImporter:
       name: Caminos_3
       rect:
         serializedVersion: 2
-        x: 225
+        x: 224
         y: 630
         width: 410
         height: 410

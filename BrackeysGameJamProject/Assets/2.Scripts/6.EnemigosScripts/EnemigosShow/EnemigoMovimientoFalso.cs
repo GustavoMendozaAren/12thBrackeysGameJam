@@ -10,22 +10,25 @@ public class EnemigoMovimientoFalso : MonoBehaviour
 
     private bool movingToEnd = true; // Controla la dirección del movimiento
 
+    private float targetX;
+    private float newX;
+    private Vector3 currentPosition;
+
     void Start()
     {
-        // Establecer el punto inicial como la posición actual en X del objeto
         startPointX = transform.position.x;
     }
 
     void Update()
     {
         // Determinar el destino actual
-        float targetX = movingToEnd ? endPointX : startPointX;
+        targetX = movingToEnd ? endPointX : startPointX;
 
         // Obtener la posición actual del objeto
-        Vector3 currentPosition = transform.position;
+        currentPosition = transform.position;
 
         // Calcular la nueva posición en X
-        float newX = Mathf.MoveTowards(currentPosition.x, targetX, moveSpeed * Time.deltaTime);
+        newX = Mathf.MoveTowards(currentPosition.x, targetX, moveSpeed * Time.deltaTime);
 
         // Actualizar la posición del objeto
         transform.position = new Vector3(newX, currentPosition.y, currentPosition.z);
