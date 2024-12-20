@@ -16,6 +16,11 @@ public class HealerMovFake : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField] private GameObject healVfx;
+    [SerializeField] private GameObject healVfxFront;
+
+    private bool contMov = true;
+
     void Start()
     {
         startPointX = transform.position.x;
@@ -24,7 +29,15 @@ public class HealerMovFake : MonoBehaviour
 
     void Update()
     {
-        SeMueve();
+        if (contMov)
+        {
+            SeMueve();
+        }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            Animations();
+        }
     }
 
     private void SeMueve()
@@ -46,5 +59,31 @@ public class HealerMovFake : MonoBehaviour
         {
             movingToEnd = !movingToEnd; // Cambiar la dirección del movimiento
         }
+    }
+
+    private void Animations()
+    {
+        animator.SetTrigger("Healing");
+        StartCoroutine(DesactivarVfx());
+    }
+
+    IEnumerator DesactivarVfx()
+    {
+        yield return new WaitForSeconds(1.67f);
+        healVfx.SetActive(true);
+        healVfxFront.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        healVfx.SetActive(false);
+        healVfxFront.SetActive(false);
+    }
+
+    public void StopMovFunc()
+    {
+        contMov = false;
+    }
+
+    public void ContinueMovFunc()
+    {
+        contMov = true;
     }
 }
