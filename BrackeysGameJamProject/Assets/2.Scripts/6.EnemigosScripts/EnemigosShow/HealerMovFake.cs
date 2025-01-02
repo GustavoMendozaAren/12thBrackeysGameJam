@@ -64,12 +64,11 @@ public class HealerMovFake : MonoBehaviour
     private void Animations()
     {
         animator.SetTrigger("Healing");
-        StartCoroutine(DesactivarVfx());
+        
     }
 
     IEnumerator DesactivarVfx()
     {
-        yield return new WaitForSeconds(1.67f);
         healVfx.SetActive(true);
         healVfxFront.SetActive(true);
         yield return new WaitForSeconds(2f);
@@ -80,6 +79,7 @@ public class HealerMovFake : MonoBehaviour
     public void StopMovFunc()
     {
         contMov = false;
+        StartCoroutine(DesactivarVfx());
     }
 
     public void ContinueMovFunc()
