@@ -7,6 +7,9 @@ TagManager:
   - FaroTower
   - Enemy
   - Proyectil
+  - EnemyBasic
+  - EnemyHealer
+  - EnemyTank
   layers:
   - Default
   - TransparentFX

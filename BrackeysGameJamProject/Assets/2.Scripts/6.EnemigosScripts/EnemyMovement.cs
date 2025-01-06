@@ -6,7 +6,8 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    private float speed = 1f;
+    private float speed = 0.3f;
+    private Transform targetWaypoint;
 
     public void SetWaypoints(Transform[] waypoints)
     {
@@ -15,12 +16,12 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        speed = StaticVariables.enemiesSpeed;
+        speed = speed * StaticVariables.enemiesSpeed;
 
         if (waypoints == null || waypoints.Length == 0) return;
 
         // Moverse hacia el siguiente punto
-        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        targetWaypoint = waypoints[currentWaypointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetWaypoint.position, speed * Time.deltaTime);
 
         // Si ha llegado al punto actual, ir al siguiente
