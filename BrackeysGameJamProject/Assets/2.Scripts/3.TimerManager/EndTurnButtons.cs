@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class EndTurnButtons : MonoBehaviour
 {
-    [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel, inactiveProdBttn;
+    [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel, inactiveProdBttn, inactiveInfoBttn;
 
     [SerializeField] private Light2D globalLight;
     private float lightFadeDuration = 3f;
@@ -33,6 +33,7 @@ public class EndTurnButtons : MonoBehaviour
     public void EndDayButton()
     {
         inactiveProdBttn.SetActive(true);
+        inactiveInfoBttn.SetActive(true);
         dayButtonsPanel.SetActive(false);
         nightButtonsPanel.SetActive(true);
         isFadingDown = true;
@@ -49,6 +50,7 @@ public class EndTurnButtons : MonoBehaviour
     public void EndNightButton()
     {
         inactiveProdBttn.SetActive(false);
+        inactiveInfoBttn.SetActive(false);
         dayButtonsPanel.SetActive(true);
         nightButtonsPanel.SetActive(false);
         isFadingUp = true;

@@ -10,7 +10,7 @@ public class Proyectil : MonoBehaviour
     {
         if (other.CompareTag("EnemyBasic"))
         {
-            dano = 0.5f;
+            dano = 2.5f;
             EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
             if (vidaEnemigo != null)
             {
@@ -20,7 +20,7 @@ public class Proyectil : MonoBehaviour
         }
         if (other.CompareTag("EnemyHealer"))
         {
-            dano = 0.25f;
+            dano = 1f;
             EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
             if (vidaEnemigo != null)
             {
@@ -30,7 +30,7 @@ public class Proyectil : MonoBehaviour
         }
         if (other.CompareTag("EnemyTank"))
         {
-            dano = 0.2f;
+            dano = 0.5f;
             EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
             if (vidaEnemigo != null)
             {

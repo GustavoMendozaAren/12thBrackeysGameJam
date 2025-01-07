@@ -6651,6 +6651,7 @@ MonoBehaviour:
   dayButtonsPanel: {fileID: 495609484}
   nightButtonsPanel: {fileID: 394769132}
   inactiveProdBttn: {fileID: 287285335}
+  inactiveInfoBttn: {fileID: 1695835122515773227}
   globalLight: {fileID: 353491142}
   daysTxt: {fileID: 2083436557}
   daysTxtObj: {fileID: 2083436555}
@@ -30242,18 +30243,6 @@ PrefabInstance:
       propertyPath: defeatedPanel
       value: 
       objectReference: {fileID: 1221960125}
-    - target: {fileID: 2309711673413443380, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5018867
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309711673413443380, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
-      propertyPath: m_Color.g
-      value: 0.5018867
-      objectReference: {fileID: 0}
-    - target: {fileID: 2309711673413443380, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5018867
-      objectReference: {fileID: 0}
     - target: {fileID: 3718770107471608430, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: aldenosTxt
       value: 
@@ -30294,10 +30283,6 @@ PrefabInstance:
       propertyPath: timerManagerCastillo
       value: 
       objectReference: {fileID: 1208083013}
-    - target: {fileID: 3954502775139162593, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4017669226018066526, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: m_Camera
       value: 
@@ -30306,10 +30291,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2058335252}
-    - target: {fileID: 5819263548883837138, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6884676142979422853, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
       propertyPath: m_Name
       value: CastilloFabrica
@@ -30359,6 +30340,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+--- !u!1 &1695835122515773227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7369581533851845409, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
+  m_PrefabInstance: {fileID: 1695835122515773226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1695835122515773228 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3718770107471608430, guid: b1beb000a52c0454c8d448fbe38ca836, type: 3}
