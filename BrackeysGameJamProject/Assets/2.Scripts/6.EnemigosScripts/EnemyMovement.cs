@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    // Waypoints Variables
     private Transform[] waypoints;
     private int currentWaypointIndex = 0;
-    private float speed = 0.3f;
+    private float speed;
     private Transform targetWaypoint;
+
+    // Animations Variables
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void SetWaypoints(Transform[] waypoints)
     {
@@ -16,7 +25,13 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        speed = speed * StaticVariables.enemiesSpeed;
+        SeguimientoDePuntos();
+        VelocidadDeLaAnimacion();
+    }
+
+    private void SeguimientoDePuntos()
+    {
+        speed = 0.3f * StaticVariables.enemiesSpeed;
 
         if (waypoints == null || waypoints.Length == 0) return;
 
@@ -35,5 +50,10 @@ public class EnemyMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void VelocidadDeLaAnimacion()
+    {
+        animator.speed = StaticVariables.enemiesSpeed;
     }
 }

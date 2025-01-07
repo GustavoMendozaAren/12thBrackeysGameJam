@@ -76,15 +76,4 @@ public class EnemySpawner2 : MonoBehaviour
     {
         return num % 5 == 0;
     }
-
-    IEnumerator SpawnEnemyCoroutine()
-    {
-        for (int i = 0; i < enemyCount; i++)
-        {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
-
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
 }

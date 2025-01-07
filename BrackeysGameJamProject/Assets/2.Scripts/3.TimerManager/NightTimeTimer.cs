@@ -77,8 +77,8 @@ public class NightTimeTimer : MonoBehaviour
 
     public void NormalSpeedBttn()
     {
-        timerSpeed = 1f;
-        nighttimerSpeed = 1f;
+        timerSpeed = 1.5f;
+        nighttimerSpeed = 1.5f;
         StaticVariables.enemiesSpeed = 1;
         StaticVariables.proyectileSpeed = 10f;
         StaticVariables.rateOfFire = 1f;
@@ -86,17 +86,17 @@ public class NightTimeTimer : MonoBehaviour
 
     public void DoubleSpeedBttn()
     {
-        timerSpeed = 12f;
-        nighttimerSpeed = 12f;
-        StaticVariables.enemiesSpeed = 12;
-        StaticVariables.proyectileSpeed = 60f;
-        StaticVariables.rateOfFire = .12f;
+        timerSpeed = 3f;
+        nighttimerSpeed = 3f;
+        StaticVariables.enemiesSpeed = 2;
+        StaticVariables.proyectileSpeed = 5f;
+        StaticVariables.rateOfFire = 0.5f;
     }
 
     public void ResertNightTimerBttn()
     {
-        timerSpeed = 1f;
-        nighttimerSpeed = 1f;
+        timerSpeed = 1.5f;
+        nighttimerSpeed = 1.5f;
         StaticVariables.enemiesSpeed = 1;
         StaticVariables.proyectileSpeed = 10f;
         StaticVariables.rateOfFire = 1f;
