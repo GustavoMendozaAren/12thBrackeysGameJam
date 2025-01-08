@@ -26,8 +26,7 @@ public class EndTurnButtons : MonoBehaviour
     [SerializeField] private GameObject daysTxtObj;
     [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
-    [Header("SPAWNERS")]
-    [SerializeField] private GameObject[] spawners;
+    public SpawnerManagerScript spawnerManager;
 
     private void Update()
     {
@@ -43,10 +42,7 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndDayButton()
     {
-        foreach (GameObject spawner in spawners)
-        {
-            spawner.gameObject.SetActive(true);
-        }
+        spawnerManager.ActivateSpawner();
 
         inactiveProdBttn.SetActive(true);
         inactiveInfoBttn.SetActive(true);
@@ -65,10 +61,7 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndNightButton()
     {
-        foreach (GameObject spawner in spawners)
-        {
-            spawner.gameObject.SetActive(false);
-        }
+        spawnerManager.DeactivateSpawners();
 
         inactiveProdBttn.SetActive(false);
         inactiveInfoBttn.SetActive(false);
