@@ -10,6 +10,11 @@ public class PauseManager : MonoBehaviour
     [Header("TUTORIAL PANELS")]
     [SerializeField] private GameObject[] tutPanel;
 
+    [Header("PANELES")]
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject controlsPanel;
+
+
     private void Start()
     {
         Time.timeScale = 0f;
@@ -42,7 +47,12 @@ public class PauseManager : MonoBehaviour
 
     public void OptionsBttn()
     {
+        optionsPanel.SetActive(!optionsPanel.activeSelf);
+    }
 
+    public void ControlesBttn()
+    {
+        controlsPanel.SetActive(!controlsPanel.activeSelf);
     }
 
     private void ResetVariables()
@@ -54,6 +64,7 @@ public class PauseManager : MonoBehaviour
         StaticVariables.cantidadBuildersDisponibles = 0;
     }
 
+    // TUTORIAL STUFF
 
     public void ContinueTut0Bttn()
     {

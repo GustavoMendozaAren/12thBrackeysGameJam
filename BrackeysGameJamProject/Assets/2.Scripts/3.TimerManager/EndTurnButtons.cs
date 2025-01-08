@@ -7,16 +7,27 @@ using UnityEngine.Rendering.Universal;
 
 public class EndTurnButtons : MonoBehaviour
 {
-    [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel;
+    [Header("PANELES")]
+    [SerializeField] private GameObject dayButtonsPanel;
+    [SerializeField] private GameObject nightButtonsPanel;
 
+    [Header("BOTONES")]
+    [SerializeField] private GameObject inactiveProdBttn;
+    [SerializeField] private GameObject inactiveInfoBttn;
+
+    [Header("LUCES")]
     [SerializeField] private Light2D globalLight;
     private float lightFadeDuration = 3f;
     private bool isFadingDown = false;
     private bool isFadingUp = false;
 
+    [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI daysTxt;
     [SerializeField] private GameObject daysTxtObj;
     [SerializeField] private TextMeshProUGUI spareBuildersTxt;
+
+    [Header("SPAWNERS")]
+    [SerializeField] private GameObject[] spawners;
 
     private void Update()
     {
@@ -32,6 +43,13 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndDayButton()
     {
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.gameObject.SetActive(true);
+        }
+
+        inactiveProdBttn.SetActive(true);
+        inactiveInfoBttn.SetActive(true);
         dayButtonsPanel.SetActive(false);
         nightButtonsPanel.SetActive(true);
         isFadingDown = true;
@@ -47,6 +65,13 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndNightButton()
     {
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.gameObject.SetActive(false);
+        }
+
+        inactiveProdBttn.SetActive(false);
+        inactiveInfoBttn.SetActive(false);
         dayButtonsPanel.SetActive(true);
         nightButtonsPanel.SetActive(false);
         isFadingUp = true;

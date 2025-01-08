@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class VidaCastillo : MonoBehaviour
 {
     [SerializeField] private float vidaMaxima = 1f;       // Vida máxima del castillo
-    [SerializeField] private float danoPorEnemigo = .05f;    // Daño que recibe por enemigo
+    [SerializeField] private float danoPorEnemigo;    // Daño que recibe por enemigo
     private float vidaActual;
 
     [SerializeField] private Image barraDeVida;          // Referencia a la imagen de la barra de vida
@@ -19,23 +19,19 @@ public class VidaCastillo : MonoBehaviour
         ActualizarBarraDeVida();       // Actualiza la barra de vida en el inicio
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ReducirVida();
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyBasic"))
         {
-            ReducirVida();
+            ReducirVida(1f);
+        }
+        else if (other.CompareTag("EnemyTank"))
+        {
+            ReducirVida(5f);
         }
     }
 
-    private void ReducirVida()
+    private void ReducirVida(float danoPorEnemigo)
     {
         vidaActual -= danoPorEnemigo;
         vidaActual = Mathf.Clamp(vidaActual, 0, vidaMaxima);  // Limita la vida mínima a 0
