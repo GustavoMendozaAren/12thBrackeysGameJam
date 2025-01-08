@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class SpawnerManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("SPAWNERS")]
+    [SerializeField] private GameObject[] spawners;
+
+    public void ActivateSpawner()
     {
-        
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.gameObject.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeactivateSpawners()
     {
-        
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.gameObject.SetActive(false);
+        }
     }
 }
