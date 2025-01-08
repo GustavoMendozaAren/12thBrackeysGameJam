@@ -717,12 +717,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53704677}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 24, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1840804019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58735785
 GameObject:
@@ -6997,9 +6997,7 @@ MonoBehaviour:
   daysTxt: {fileID: 2083436557}
   daysTxtObj: {fileID: 2083436555}
   spareBuildersTxt: {fileID: 834466509}
-  spawners:
-  - {fileID: 1190841773}
-  - {fileID: 1217100149}
+  spawnerManager: {fileID: 1840804020}
 --- !u!4 &843099583
 Transform:
   m_ObjectHideFlags: 0
@@ -11860,12 +11858,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190841773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1840804019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1190841776
 MonoBehaviour:
@@ -12090,12 +12088,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217100149}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 24, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1840804019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1217100151
 MonoBehaviour:
@@ -18157,6 +18155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840804019}
+  - component: {fileID: 1840804020}
   m_Layer: 0
   m_Name: SpawnersManager_Obj
   m_TagString: Untagged
@@ -18173,12 +18172,30 @@ Transform:
   m_GameObject: {fileID: 1840804018}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.486038, y: 0.7027233, z: 0.070574835}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1190841775}
+  - {fileID: 53704679}
+  - {fileID: 1217100150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840804020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840804018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c424d27a13f3e34f8325cc7d62a759c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawners:
+  - {fileID: 1190841773}
+  - {fileID: 1217100149}
 --- !u!1 &1849006895
 GameObject:
   m_ObjectHideFlags: 0
@@ -32297,9 +32314,6 @@ SceneRoots:
   - {fileID: 996175338}
   - {fileID: 1840804019}
   - {fileID: 441280499}
-  - {fileID: 1190841775}
-  - {fileID: 53704679}
-  - {fileID: 1217100150}
   - {fileID: 366019117}
   - {fileID: 792882238}
   - {fileID: 2327464006312134392}
