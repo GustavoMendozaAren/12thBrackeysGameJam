@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private Transform spawnPoint;    // Punto de spawn de los enemigos
-    [SerializeField] private int spawnDelay = 1; // Retraso entre cada spawn
+    [SerializeField] private int spawnDelay = 5; // Retraso entre cada spawn
 
     // Time Stuff
     private float timeRemaining = 180f;
@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int enemyCounter = 0;
 
+    
     private void Update()
     {
         if (timerIsRunning)
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
             ApeearEnemyFunc();
         }
     }
+    
 
     void StopWatchFunc()
     {
@@ -36,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime * StaticVariables.enemiesSpeed;
-            if (EsDivisibleEntreCinco(minutes))
+            if (EsDivisibleEntreN(minutes, spawnDelay))
             {
                 smallCounter++;
             }
@@ -57,15 +59,13 @@ public class EnemySpawner : MonoBehaviour
         timeRemaining = 180f;
         timerIsRunning = true;
         enemyCounter = 0;
-
-        //StartCoroutine(SpawnEnemyCoroutine());
     }
 
     void ApeearEnemyFunc()
     {
         if (smallCounter == 1)
         {
-            if (enemyCounter < (4 + (StaticVariables.diasTranscurridos * 2)))
+            if (enemyCounter < (enemyCount + (StaticVariables.diasTranscurridos * 2)))
             {
                 GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
                 enemy.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
@@ -74,19 +74,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    bool EsDivisibleEntreCinco(int num)
+    bool EsDivisibleEntreN(int num, int divisor)
     {
-        return num % 5 == 0;
+        return num % divisor == 0;
     }
 
-    IEnumerator SpawnEnemyCoroutine()
-    {
-        for (int i = 0; i < enemyCount; i++)
-        {
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
-
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
 }
