@@ -18,7 +18,7 @@ public class AtackTurret : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Verifica si el objeto detectado es un enemigo
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank"))
         {
             objetivo = other.transform; // Almacena el enemigo como objetivo
         }
@@ -27,7 +27,7 @@ public class AtackTurret : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // Cuando el enemigo sale del rango, se elimina como objetivo
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank"))
         {
             objetivo = null;
         }
