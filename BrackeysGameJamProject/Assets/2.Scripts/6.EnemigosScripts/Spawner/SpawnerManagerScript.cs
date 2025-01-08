@@ -9,17 +9,25 @@ public class SpawnerManagerScript : MonoBehaviour
 
     public void ActivateSpawner()
     {
-        foreach (GameObject spawner in spawners)
+        if(StaticVariables.diasTranscurridos == 1)
         {
-            spawner.gameObject.SetActive(true);
+            spawners[0].SetActive(true);
         }
+        //foreach (GameObject spawner in spawners)
+        //{
+        //    spawner.gameObject.SetActive(true);
+        //}
     }
 
     public void DeactivateSpawners()
     {
-        foreach (GameObject spawner in spawners)
+        if (StaticVariables.diasTranscurridos == 1)
         {
-            spawner.gameObject.SetActive(false);
+            spawners[0].SetActive(false);
         }
+        //foreach (GameObject spawner in spawners)
+        //{
+        //    spawner.gameObject.SetActive(false);
+        //}
     }
 }

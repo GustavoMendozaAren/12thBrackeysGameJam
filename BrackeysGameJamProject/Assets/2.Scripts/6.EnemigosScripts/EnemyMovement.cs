@@ -9,13 +9,19 @@ public class EnemyMovement : MonoBehaviour
     private int currentWaypointIndex = 0;
     private float speed;
     private Transform targetWaypoint;
+    [SerializeField] private int ID; // 1-Basic, 2-Healer, 3-Tank
 
     // Animations Variables
     private Animator animator;
 
+    [SerializeField] private GameObject[] vfx;
+
+    private bool continuarMovimiento;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        continuarMovimiento = true;
     }
 
     public void SetWaypoints(Transform[] waypoints)
@@ -25,8 +31,24 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        SeguimientoDePuntos();
+        if(continuarMovimiento)
+            SeguimientoDePuntos();
+
         VelocidadDeLaAnimacion();
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            Animations();
+        }
+    }
+
+    private void Animations()
+    {
+        if(ID == 2)
+            animator.SetTrigger("Healing");
+        else if(ID == 3)
+            animator.SetTrigger("ShieldActive");
+
     }
 
     private void SeguimientoDePuntos()
@@ -55,5 +77,29 @@ public class EnemyMovement : MonoBehaviour
     private void VelocidadDeLaAnimacion()
     {
         animator.speed = StaticVariables.enemiesSpeed;
+    }
+
+    public void VfxActive()
+    {
+        StartCoroutine(DesactivarVfx());
+        continuarMovimiento = false;
+    }
+
+    public void VfxDeactive()
+    {
+        continuarMovimiento = true;
+    }
+
+    IEnumerator DesactivarVfx()
+    {
+        foreach(GameObject effects in vfx)
+        {
+            effects.SetActive(true);
+        }
+        yield return new WaitForSeconds(2f);
+        foreach (GameObject effects in vfx)
+        {
+            effects.SetActive(false);
+        }
     }
 }
