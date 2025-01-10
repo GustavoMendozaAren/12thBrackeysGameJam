@@ -1,6 +1,6 @@
 public static class StaticVariables
 {
-    public static int diasTranscurridos = 10;
+    public static int diasTranscurridos = 1;
 
     public static int cantidadAldeanosTotales = 0;
     public static int cantidadAldeanosDisponibles = 0;
