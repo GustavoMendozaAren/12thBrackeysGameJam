@@ -11,7 +11,7 @@ public class VidaCastillo : MonoBehaviour
 
     [SerializeField] private Image barraDeVida;          // Referencia a la imagen de la barra de vida
 
-    [SerializeField] private GameObject defeatedPanel;
+    [SerializeField] private CondicionesDeVictoria condiciones;
 
     private void Start()
     {
@@ -51,7 +51,6 @@ public class VidaCastillo : MonoBehaviour
 
     private void GameOver()
     {
-        defeatedPanel.SetActive(true);
-        Time.timeScale = 0f;
+        condiciones.Derrota();
     }
 }

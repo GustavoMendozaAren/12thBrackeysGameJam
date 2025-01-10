@@ -17,7 +17,7 @@ public class HealerMovFake : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private GameObject healVfx;
-    [SerializeField] private GameObject healVfxFront;
+    //[SerializeField] private GameObject healVfxFront;
 
     private bool contMov = true;
 
@@ -36,7 +36,7 @@ public class HealerMovFake : MonoBehaviour
 
         if (Input.GetKey(KeyCode.T))
         {
-            Animations();
+            Animations2();
         }
     }
 
@@ -61,29 +61,34 @@ public class HealerMovFake : MonoBehaviour
         }
     }
 
-    private void Animations()
+    private void Animations2()
     {
-        animator.SetTrigger("Healing");
+        animator.SetTrigger("ShieldActive");
         
     }
 
-    IEnumerator DesactivarVfx()
+    IEnumerator DesactivarVfx2()
     {
         healVfx.SetActive(true);
-        healVfxFront.SetActive(true);
+        //healVfxFront.SetActive(true);
         yield return new WaitForSeconds(2f);
         healVfx.SetActive(false);
-        healVfxFront.SetActive(false);
+        //healVfxFront.SetActive(false);
     }
 
-    public void StopMovFunc()
+    public void StopMovFunc2()
     {
         contMov = false;
-        StartCoroutine(DesactivarVfx());
+        
     }
 
-    public void ContinueMovFunc()
+    public void ContinueMovFunc2()
     {
         contMov = true;
+    }
+
+    public void VfxActiveFake()
+    {
+        StartCoroutine(DesactivarVfx2());
     }
 }

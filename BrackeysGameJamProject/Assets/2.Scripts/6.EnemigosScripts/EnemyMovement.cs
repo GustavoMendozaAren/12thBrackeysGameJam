@@ -79,15 +79,25 @@ public class EnemyMovement : MonoBehaviour
         animator.speed = StaticVariables.enemiesSpeed;
     }
 
-    public void VfxActive()
+    public void VfxYMovimientoHealer()
     {
         StartCoroutine(DesactivarVfx());
         continuarMovimiento = false;
     }
 
+    public void VfxActive()
+    {
+        StartCoroutine(DesactivarVfx());    
+    }
+
     public void VfxDeactive()
     {
         continuarMovimiento = true;
+    }
+
+    public void DetenerMovimiento()
+    {
+        continuarMovimiento = false;
     }
 
     IEnumerator DesactivarVfx()
