@@ -13,6 +13,7 @@ public class CastilloManager : MonoBehaviour
     [SerializeField] private GameObject castilloInfoOpenImg;
     [SerializeField] private Animator pestProdAnim;
     [SerializeField] private GameObject infoCiudadanos;
+    [SerializeField] private Animator infoCiudadanosAnim;
 
     [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI aldenosTxt;
@@ -28,6 +29,7 @@ public class CastilloManager : MonoBehaviour
     void Start()
     {
         pestProdAnim = castilloInfoOpenImg.GetComponent<Animator>();
+        infoCiudadanosAnim = infoCiudadanos.GetComponent<Animator>();
     }
 
     private void Update()
@@ -94,9 +96,14 @@ public class CastilloManager : MonoBehaviour
         pestProdAnim.SetBool("ProdIn", false);
     }
 
-    public void OpenCloseInfoCiudadanos()
+    public void OpenInfoCiudadanos()
     {
-        infoCiudadanos.SetActive(!infoCiudadanos.activeSelf);
+        infoCiudadanosAnim.SetBool("InfoCitOut", true);
+    }
+
+    public void CloseInfoCiudadanos()
+    {
+        infoCiudadanosAnim.SetBool("InfoCitOut", false);
     }
 
     public void OpenWarriorInfo()
