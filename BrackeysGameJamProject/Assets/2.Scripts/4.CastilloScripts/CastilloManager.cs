@@ -7,8 +7,6 @@ public class CastilloManager : MonoBehaviour
 {
     [Header("PANELES LLAMADOS")]
     //[SerializeField] private GameObject panelCreacionPersonajes;
-    [SerializeField] private GameObject openWarriorInfoPanel;
-    [SerializeField] private GameObject openBuilderInfoPanel;
     [SerializeField] private GameObject textNeedBuilders;
     [SerializeField] private GameObject castilloInfoOpenImg;
     [SerializeField] private Animator pestProdAnim;
@@ -35,6 +33,11 @@ public class CastilloManager : MonoBehaviour
     private void Update()
     {
         CheckTimeForButtons();
+    }
+
+    private void OnMouseDown()
+    {
+        CastilloInfoOpen();
     }
 
     void CheckTimeForButtons()
@@ -104,17 +107,6 @@ public class CastilloManager : MonoBehaviour
     public void CloseInfoCiudadanos()
     {
         infoCiudadanosAnim.SetBool("InfoCitOut", false);
-    }
-
-    public void OpenWarriorInfo()
-    {
-        openWarriorInfoPanel.SetActive(!openWarriorInfoPanel.activeSelf);
-    }
-
-    public void OpenBuilderInfo()
-    {
-        openBuilderInfoPanel.SetActive(!openBuilderInfoPanel.activeSelf);
-        
     }
 
     public void NeedBuildersText()

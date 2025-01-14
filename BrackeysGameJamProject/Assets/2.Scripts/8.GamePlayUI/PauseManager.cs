@@ -14,7 +14,6 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject controlsPanel;
-    [SerializeField] private GameObject flechaTutObj;
 
 
     private void Start()
@@ -107,6 +106,5 @@ public class PauseManager : MonoBehaviour
     {
         tutPanel[3].SetActive(false);
         Time.timeScale = 1f;
-        flechaTutObj.SetActive(true);
     }
 }
