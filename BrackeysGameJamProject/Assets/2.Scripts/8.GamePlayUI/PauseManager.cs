@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pausePanel;
+    
 
     [Header("TUTORIAL PANELS")]
     [SerializeField] private GameObject[] tutPanel;
 
     [Header("PANELES")]
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject controlsPanel;
 

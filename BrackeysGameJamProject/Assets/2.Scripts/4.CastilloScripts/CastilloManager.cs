@@ -7,12 +7,11 @@ public class CastilloManager : MonoBehaviour
 {
     [Header("PANELES LLAMADOS")]
     //[SerializeField] private GameObject panelCreacionPersonajes;
-    [SerializeField] private GameObject openWarriorInfoPanel;
-    [SerializeField] private GameObject openBuilderInfoPanel;
     [SerializeField] private GameObject textNeedBuilders;
     [SerializeField] private GameObject castilloInfoOpenImg;
     [SerializeField] private Animator pestProdAnim;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject infoCiudadanos;
+    [SerializeField] private Animator infoCiudadanosAnim;
 
     [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI aldenosTxt;
@@ -27,8 +26,8 @@ public class CastilloManager : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         pestProdAnim = castilloInfoOpenImg.GetComponent<Animator>();
+        infoCiudadanosAnim = infoCiudadanos.GetComponent<Animator>();
     }
 
     private void Update()
@@ -36,45 +35,10 @@ public class CastilloManager : MonoBehaviour
         CheckTimeForButtons();
     }
 
-    /*
-    void OnMouseDown()
+    private void OnMouseDown()
     {
-        CheckTimeForButtons();
-
-        if (timerManagerCastillo.DayTimeMin < 2)
-            return;
-        else
-            MostrarPanelCreacion();
+        CastilloInfoOpen();
     }
-    */
-
-    /*
-    private void OnMouseEnter()
-    {
-        CambiarAlpha(0.8f);
-    }
-
-    void OnMouseExit()
-    {
-        CambiarAlpha(1f);  // Cambia el alpha de vuelta a 1
-    }
-
-    // Método para cambiar el alpha del color del SpriteRenderer
-    void CambiarAlpha(float alphaValue)
-    {
-        if (spriteRenderer != null)
-        {
-            Color colorActual = spriteRenderer.color;
-            colorActual.a = alphaValue;  // Cambia el valor del alpha
-            spriteRenderer.color = colorActual;  // Asigna el nuevo color
-        }
-    }*/
-    /*
-    void MostrarPanelCreacion()
-    {
-        panelCreacionPersonajes.SetActive(!panelCreacionPersonajes.activeSelf);
-    }
-    */
 
     void CheckTimeForButtons()
     {
@@ -95,7 +59,7 @@ public class CastilloManager : MonoBehaviour
         {
             timerManagerCastillo.DayTimeMin -= 2;
             StaticVariables.cantidadAldeanosTotales++;
-            aldenosTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
+            aldenosTxt.text = StaticVariables.cantidadAldeanosTotales + "/10";
             CheckTimeForButtons();
 
             StaticVariables.cantidadAldeanosDisponibles++;
@@ -113,7 +77,7 @@ public class CastilloManager : MonoBehaviour
         {
             timerManagerCastillo.DayTimeMin -= 2;
             StaticVariables.cantidadBuildersTotales++;
-            buildersTxt.text = "" + StaticVariables.cantidadBuildersTotales;
+            buildersTxt.text = StaticVariables.cantidadBuildersTotales + "/5";
             CheckTimeForButtons();
 
             StaticVariables.cantidadBuildersDisponibles++;
@@ -135,15 +99,14 @@ public class CastilloManager : MonoBehaviour
         pestProdAnim.SetBool("ProdIn", false);
     }
 
-    public void OpenWarriorInfo()
+    public void OpenInfoCiudadanos()
     {
-        openWarriorInfoPanel.SetActive(!openWarriorInfoPanel.activeSelf);
+        infoCiudadanosAnim.SetBool("InfoCitOut", true);
     }
 
-    public void OpenBuilderInfo()
+    public void CloseInfoCiudadanos()
     {
-        openBuilderInfoPanel.SetActive(!openBuilderInfoPanel.activeSelf);
-        
+        infoCiudadanosAnim.SetBool("InfoCitOut", false);
     }
 
     public void NeedBuildersText()

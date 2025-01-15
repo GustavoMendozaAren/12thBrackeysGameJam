@@ -7,31 +7,46 @@ public class InfoAldeanoPnl : MonoBehaviour
     [SerializeField] private GameObject openPanelInfo;
     [SerializeField] private GameObject panelInfoFaro;
     [SerializeField] private GameObject panelInfoArqueros;
+    [SerializeField] private GameObject openWarriorInfoPanel;
+    [SerializeField] private GameObject openBuilderInfoPanel;
 
-    [SerializeField] private Animator animator;
-
-    private void Start()
+    public void OpenInfoFarosBttn()
     {
-        animator = openPanelInfo.GetComponent<Animator>();
+        panelInfoFaro.SetActive(true);
     }
 
-    public void InfoFarosBttn()
+    public void CloseInfoFarosBttn()
     {
-        panelInfoFaro.SetActive(!panelInfoFaro.activeSelf);
+        panelInfoFaro.SetActive(false);
     }
 
-    public void InfoArchersBttn()
+    public void OpenInfoArchersBttn()
     {
-        panelInfoArqueros.SetActive(!panelInfoArqueros.activeSelf);
+        panelInfoArqueros.SetActive(true);
     }
 
-    public void OpenPanelBttn()
+    public void CloseInfoArchersBttn()
     {
-        animator.SetBool("InfoActive", true);
+        panelInfoArqueros.SetActive(false);
     }
 
-    public void ClosePanelBttn()
+    public void OpenWarriorInfo()
     {
-        animator.SetBool("InfoActive", false);
+        openWarriorInfoPanel.SetActive(true);
+    }
+
+    public void CloseWarriorInfo()
+    {
+        openWarriorInfoPanel.SetActive(false);
+    }
+
+    public void OpenBuilderInfo()
+    {
+        openBuilderInfoPanel.SetActive(true);
+    }
+
+    public void CloseBuilderInfo()
+    {
+        openBuilderInfoPanel.SetActive(false);
     }
 }
