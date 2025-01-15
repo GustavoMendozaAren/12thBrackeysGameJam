@@ -26,7 +26,9 @@ public class EndTurnButtons : MonoBehaviour
     [SerializeField] private GameObject daysTxtObj;
     [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
-    public SpawnerManagerScript spawnerManager;
+    [Header("SCRIPTS")]
+    [SerializeField] private SpawnerManagerScript spawnerManager;
+    [SerializeField] private CondicionesDeVictoria condicionV;
 
     private void Update()
     {
@@ -76,8 +78,23 @@ public class EndTurnButtons : MonoBehaviour
         Invoke(nameof(DesactivarColliderTorres), 1f);
 
         daysTxtObj.SetActive(true);
-        StaticVariables.diasTranscurridos++;
-        daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
+
+        DiasTranscurridosActualizacion();
+    }
+
+    void DiasTranscurridosActualizacion()
+    {
+        if(StaticVariables.diasTranscurridos < 10)
+        {
+            StaticVariables.diasTranscurridos++;
+            daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
+        }
+        else
+        {
+            condicionV.Victoria();
+        }
+        
+
     }
 
     void FadeLightDown()

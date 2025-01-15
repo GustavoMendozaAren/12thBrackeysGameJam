@@ -75,6 +75,10 @@ public class AtackTurret : MonoBehaviour
 
             Rigidbody2D rbProyectil = proyectil.GetComponent<Rigidbody2D>();
             rbProyectil.velocity = direccion * velocidadProyectil;
+
+            // Rotación del proyectil hacia el objetivo
+            float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg; // Calcular el ángulo
+            proyectil.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angulo - 90)); // Ajustar rotación restando 90 grados
         }
     }
 
