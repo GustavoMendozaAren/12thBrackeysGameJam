@@ -5,13 +5,18 @@ using TMPro;
 
 public class TorretsStats : MonoBehaviour
 {
-    [SerializeField] private GameObject panelEstadisticas;
+    [Header ("PANELES")]
+    [SerializeField] private GameObject openedArcherInfoPanel;
+    [SerializeField] private GameObject closedArcherInfoPanel;
     [SerializeField] private GameObject rangoSprite;
+    [SerializeField] private CircleCollider2D rangoCollider;
 
     [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI cantidadPersonasTxt;
     [SerializeField] private TextMeshProUGUI damageTxt;
     [SerializeField] private TextMeshProUGUI rangeTxt;
+
+    private TextMeshProUGUI aldeanosTotalesTxt;
 
     private int AldeanosEnTorre = 0;
     private int damage = 0;
@@ -19,16 +24,11 @@ public class TorretsStats : MonoBehaviour
 
     private bool estaEnRangoDeFaro = false;
 
-    void OnMouseDown()
-    {
-        panelEstadisticas.SetActive(!panelEstadisticas.activeSelf);
-        rangoSprite.SetActive(!rangoSprite.activeSelf);
-    }
+    [SerializeField] private AtackTurret atack;
 
-    private void OnMouseEnter()
+    private void Start()
     {
-        panelEstadisticas.SetActive(true);
-        rangoSprite.SetActive(true);
+        aldeanosTotalesTxt = GameObject.Find("Aldeanos_Txt").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +56,7 @@ public class TorretsStats : MonoBehaviour
             StaticVariables.cantidadAldeanosDisponibles--;
             AldeanosEnTorre++;
             damage += 10;
+            rangoCollider.radius = 6.165f;
             ActualizarCantidadPersonas();
 
             if(AldeanosEnTorre > 1)
@@ -63,6 +64,7 @@ public class TorretsStats : MonoBehaviour
                 range = 2;
                 rangeTxt.text = range + "";
                 rangoSprite.transform.localScale = new Vector3(0.48f, 0.48f, 0.48f);
+                rangoCollider.radius = 12.2f;
             }
         }
     }
@@ -82,6 +84,7 @@ public class TorretsStats : MonoBehaviour
             range = 1;
             rangeTxt.text = range + "";
             rangoSprite.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
+            rangoCollider.radius = 6.165f;
         }
     }
 
@@ -89,10 +92,13 @@ public class TorretsStats : MonoBehaviour
     {
         cantidadPersonasTxt.text = AldeanosEnTorre + "/2";
         damageTxt.text = damage + "";
+        rangeTxt.text = range + "";
 
-        
+
         TextMeshProUGUI spareAldeanosTxt = GameObject.Find("AldeanosDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareAldeanosTxt.text = "SPARE: " + StaticVariables.cantidadAldeanosDisponibles;
+        spareAldeanosTxt.text = "" + StaticVariables.cantidadAldeanosDisponibles;
+
+        ChecaSiPuedeAtacar();
     }
 
     public void ActualizarAldeanosMuertos()
@@ -122,8 +128,45 @@ public class TorretsStats : MonoBehaviour
 
         AldeanosEnTorre -= number;
         damage -= (number * 10);
+        range -= number;
 
-        TextMeshProUGUI aldeanosTotalesTxt = GameObject.Find("Aldeanos_Txt").GetComponent<TextMeshProUGUI>();
-        aldeanosTotalesTxt.text = "ALDEANOS: " + StaticVariables.cantidadAldeanosTotales + "/10";
+        
+        aldeanosTotalesTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
+
+        rangoSprite.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
+    }
+
+    void ChecaSiPuedeAtacar()
+    {
+        if(AldeanosEnTorre > 0)
+        {
+            atack.canAtack = true;
+        }else
+        {
+            atack.canAtack= false;
+        }
+
+        if (AldeanosEnTorre == 2) 
+        {
+            atack.maxAtack = true;
+        }
+        else
+        {
+            atack.maxAtack = false;
+        }
+    }
+
+    public void InfoOpenArcherBttn()
+    {
+        openedArcherInfoPanel.SetActive(true);
+        closedArcherInfoPanel.SetActive(false);
+        rangoSprite.SetActive(true);
+    }
+
+    public void InfoCloseArcherBttn()
+    {
+        openedArcherInfoPanel.SetActive(false);
+        closedArcherInfoPanel.SetActive(true);
+        rangoSprite.SetActive(false);
     }
 }

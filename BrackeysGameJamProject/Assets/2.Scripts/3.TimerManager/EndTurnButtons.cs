@@ -7,15 +7,28 @@ using UnityEngine.Rendering.Universal;
 
 public class EndTurnButtons : MonoBehaviour
 {
-    [SerializeField] private GameObject dayButtonsPanel, nightButtonsPanel;
+    [Header("PANELES")]
+    [SerializeField] private GameObject dayButtonsPanel;
+    [SerializeField] private GameObject nightButtonsPanel;
 
+    [Header("BOTONES")]
+    [SerializeField] private GameObject inactiveProdBttn;
+    [SerializeField] private GameObject inactiveInfoBttn;
+
+    [Header("LUCES")]
     [SerializeField] private Light2D globalLight;
     private float lightFadeDuration = 3f;
     private bool isFadingDown = false;
     private bool isFadingUp = false;
 
+    [Header("TEXTOS")]
     [SerializeField] private TextMeshProUGUI daysTxt;
+    [SerializeField] private GameObject daysTxtObj;
+    [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
+    [Header("SCRIPTS")]
+    [SerializeField] private SpawnerManagerScript spawnerManager;
+    [SerializeField] private CondicionesDeVictoria condicionV;
 
     private void Update()
     {
@@ -31,20 +44,29 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndDayButton()
     {
+        spawnerManager.ActivateSpawner();
+
+        inactiveProdBttn.SetActive(true);
+        inactiveInfoBttn.SetActive(true);
         dayButtonsPanel.SetActive(false);
         nightButtonsPanel.SetActive(true);
         isFadingDown = true;
 
         StaticVariables.cantidadBuildersDisponibles = StaticVariables.cantidadBuildersTotales;
-        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+        
+        spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
 
         ActivarCollidersTorres();
 
+        daysTxtObj.SetActive(false);
     }
 
     public void EndNightButton()
     {
+        spawnerManager.DeactivateSpawners();
+
+        inactiveProdBttn.SetActive(false);
+        inactiveInfoBttn.SetActive(false);
         dayButtonsPanel.SetActive(true);
         nightButtonsPanel.SetActive(false);
         isFadingUp = true;
@@ -55,8 +77,24 @@ public class EndTurnButtons : MonoBehaviour
 
         Invoke(nameof(DesactivarColliderTorres), 1f);
 
-        StaticVariables.diasTranscurridos++;
-        daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
+        daysTxtObj.SetActive(true);
+
+        DiasTranscurridosActualizacion();
+    }
+
+    void DiasTranscurridosActualizacion()
+    {
+        if(StaticVariables.diasTranscurridos < 10)
+        {
+            StaticVariables.diasTranscurridos++;
+            daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
+        }
+        else
+        {
+            condicionV.Victoria();
+        }
+        
+
     }
 
     void FadeLightDown()

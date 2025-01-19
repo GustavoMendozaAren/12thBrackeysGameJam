@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - FaroTower
+  - Enemy
+  - Proyectil
+  - EnemyBasic
+  - EnemyHealer
+  - EnemyTank
   layers:
   - Default
   - TransparentFX

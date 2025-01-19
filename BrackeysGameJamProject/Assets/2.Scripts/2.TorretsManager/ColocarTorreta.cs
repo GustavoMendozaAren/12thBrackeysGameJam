@@ -10,9 +10,10 @@ public class ColocarTorreta : MonoBehaviour
     bool modoContruccion = false;
     bool faroTower = false;
     bool archerTower = false;
+    bool panelConstruccionCerrado = false;
 
     [Header("PANEL DE CONSTRUCCION")]
-    [SerializeField] private GameObject panelDeCosntruccion;
+    [SerializeField] private GameObject botonesActivos;
 
     [Header("TORRETAS")]
     [SerializeField] private GameObject torretaPrefab;
@@ -31,6 +32,8 @@ public class ColocarTorreta : MonoBehaviour
     [SerializeField] private TimerManagerScript timerManager;
 
     private GameObject previewActual = null;
+
+    [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
     // Lista para almacenar las posiciones de las torretas ya colocadas
     private List<Vector3Int> posicionesDeTorretas = new List<Vector3Int>();
@@ -158,19 +161,22 @@ public class ColocarTorreta : MonoBehaviour
     {
         StaticVariables.cantidadBuildersDisponibles -= number;
 
-        TextMeshProUGUI spareBuildersTxt = GameObject.Find("BuildersDisponibles_Txt").GetComponent<TextMeshProUGUI>();
-        spareBuildersTxt.text = "SPARE: " + StaticVariables.cantidadBuildersDisponibles;
+        
+        spareBuildersTxt.text = "" + StaticVariables.cantidadBuildersDisponibles;
     }
 
     void ActualizarPanelDeConstruccion()
     {
         if(timerManager.DayTimeMin < 3 || StaticVariables.cantidadBuildersDisponibles < 1)
         {
-            panelDeCosntruccion.SetActive(false);
+            botonesActivos.SetActive(false);
+            panelConstruccionCerrado = true;
         }
         else
         {
-            panelDeCosntruccion.SetActive(true);
+            botonesActivos.SetActive(true);
+            panelConstruccionCerrado = false;
         }
     }
+
 }
