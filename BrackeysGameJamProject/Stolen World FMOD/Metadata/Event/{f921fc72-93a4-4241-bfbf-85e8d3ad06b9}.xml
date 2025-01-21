@@ -35,6 +35,8 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{a94da449-b7b5-43ff-a2b7-8f832a9d07ed}</destination>
+			<destination>{80c87e64-55da-4713-a64a-ef322f73a7f3}</destination>
+			<destination>{2e012da1-6047-4e38-920b-82dda8a5da8b}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{2ad23269-926a-4c7f-87ff-bb77a9896489}</destination>
@@ -68,7 +70,7 @@
 			<destination>{fa8d190b-0dc7-4404-8e18-f6c787340e27}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f1e0152c-0c0f-4f61-aa81-5bd2dbede5b5}</destination>
+			<destination>{c8051d97-cf6e-43ff-88c4-00d8cbb1e276}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{6ba70b3a-6f64-464d-b9d2-240386c276e2}" />
@@ -87,6 +89,7 @@
 			<destination>{1fdc87b9-556c-47fc-964d-3098dfa971a0}</destination>
 			<destination>{ef341c14-ee28-4109-8033-4c2448108235}</destination>
 			<destination>{7eb6d3a1-2736-4548-a316-62040c63d745}</destination>
+			<destination>{3937b114-ba31-4321-865e-425865a45478}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{e1f87e0e-5311-4e2f-a882-89af1bb8fd67}</destination>
@@ -109,6 +112,19 @@
 	<object class="ParameterProxy" id="{a94da449-b7b5-43ff-a2b7-8f832a9d07ed}">
 		<relationship name="preset">
 			<destination>{964d3b66-5a93-4162-8e8b-583f6c81d264}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{80c87e64-55da-4713-a64a-ef322f73a7f3}">
+		<relationship name="modules">
+			<destination>{3937b114-ba31-4321-865e-425865a45478}</destination>
+		</relationship>
+		<relationship name="preset">
+			<destination>{acfd04b0-554f-4205-a5fe-3bc501b5f567}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{2e012da1-6047-4e38-920b-82dda8a5da8b}">
+		<relationship name="preset">
+			<destination>{ad7583c9-9582-4526-abcc-16fcec131a30}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{264c9b6f-e09f-45ea-b5f8-3712ce566ed2}">
@@ -261,6 +277,14 @@
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{59b50005-6d8a-4b81-89d3-0ba764338a38}</destination>
+		</relationship>
+	</object>
+	<object class="SnapshotModule" id="{3937b114-ba31-4321-865e-425865a45478}">
+		<property name="start">
+			<value>1</value>
+		</property>
+		<relationship name="event">
+			<destination>{fd0b21f5-a2f8-479e-86f0-9b124b317e1e}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e1f87e0e-5311-4e2f-a882-89af1bb8fd67}">

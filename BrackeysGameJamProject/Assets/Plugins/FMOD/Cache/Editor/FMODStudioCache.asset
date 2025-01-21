@@ -25,9 +25,38 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: -2298612259252781967}
+  - {fileID: -8218539678239676245}
+  - {fileID: -78015944226932962}
   MinDistance: 1
   MaxDistance: 20
   Length: 111857
+--- !u!114 &-8218539678239676245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay/gameState
+  m_EditorClassIdentifier: 
+  Name: gameState
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 901311359
+    data2: 1357090085
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Game
+  - Win
+  - Lose
+  Exists: 1
 --- !u!114 &-7872094705891946404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +84,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 44571
+--- !u!114 &-3338779524179796666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Paused
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Paused
+  Guid:
+    Data1: -49602059
+    Data2: 1201578744
+    Data3: 312209542
+    Data4: 511586635
+  Banks:
+  - {fileID: 336791352183766013}
+  - {fileID: 2973657131358803011}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-2298612259252781967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,9 +122,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Gameplay/Moment
+  m_Name: parameter:/Gameplay/dayMoment
   m_EditorClassIdentifier: 
-  Name: Moment
+  Name: dayMoment
   StudioPath: 
   Min: 0
   Max: 1
@@ -78,6 +135,32 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Labels: []
+  Exists: 1
+--- !u!114 &-78015944226932962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gameplay/isPaused
+  m_EditorClassIdentifier: 
+  Name: isPaused
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 607241647
+    data2: 1072255513
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Playing
+  - Pause
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -98,12 +181,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: -8902118153548182576}
   - {fileID: -7872094705891946404}
+  - {fileID: -3338779524179796666}
   EditorParameters: []
   MasterBanks:
   - {fileID: 336791352183766013}
   StringsBanks:
   - {fileID: 5129852452964133349}
-  cacheTime: 638728869214561120
+  cacheTime: 638730624860353015
   cacheVersion: 131622
 --- !u!114 &336791352183766013
 MonoBehaviour:
@@ -120,10 +204,10 @@ MonoBehaviour:
   Path: Stolen World FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638728869200413105
+  lastModified: 638730624860084630
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 2778
   Exists: 1
 --- !u!114 &2973657131358803011
 MonoBehaviour:
@@ -140,10 +224,10 @@ MonoBehaviour:
   Path: Stolen World FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638728869214561120
+  lastModified: 638730624860353015
   FileSizes:
   - Name: Desktop
-    Value: 1938112
+    Value: 1939328
   Exists: 1
 --- !u!114 &5129852452964133349
 MonoBehaviour:
@@ -160,8 +244,8 @@ MonoBehaviour:
   Path: Stolen World FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638728869200433466
+  lastModified: 638730624860094605
   FileSizes:
   - Name: Desktop
-    Value: 906
+    Value: 1212
   Exists: 1
