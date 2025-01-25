@@ -6,7 +6,9 @@ public class CondicionesDeVictoria : MonoBehaviour
 {
     [Header("PANELES")]
     [SerializeField] private GameObject VictoryPanel;
+    [SerializeField] private GameObject VictoryPanelBarrera;
     [SerializeField] private GameObject DefeatedPanel;
+    [SerializeField] private GameObject DefeatedPanelBarrera;
 
     private void Start()
     {
@@ -22,7 +24,15 @@ public class CondicionesDeVictoria : MonoBehaviour
 
     public void Derrota()
     {
+        DefeatedPanelBarrera.SetActive(true);
+        StartCoroutine(DefeatedBarreraAppear());
+    }
+
+    IEnumerator DefeatedBarreraAppear()
+    {
         DefeatedPanel.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        DefeatedPanelBarrera.SetActive(false);
         Time.timeScale = 0f;
     }
 }
