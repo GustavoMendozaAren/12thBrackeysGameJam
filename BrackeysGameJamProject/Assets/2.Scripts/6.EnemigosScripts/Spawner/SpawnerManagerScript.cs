@@ -6,12 +6,19 @@ public class SpawnerManagerScript : MonoBehaviour
 {
     [Header("SPAWNERS")]
     [SerializeField] private GameObject[] spawners; // 0-Basic, 1-Healer, 2-Tank
-
+    MusicManager musicManager;
+    private void Awake()
+    {
+        GameObject instanciaMusic = GameObject.Find("Music");
+        musicManager = instanciaMusic.GetComponent<MusicManager>();
+        musicManager.DayMusic(true);
+    }
     public void ActivateSpawner()
     {
         if(StaticVariables.diasTranscurridos == 1)
         {
             Round1(true);
+            musicManager.DayMusic(false);
         }
         //foreach (GameObject spawner in spawners)
         //{
@@ -24,6 +31,7 @@ public class SpawnerManagerScript : MonoBehaviour
         if (StaticVariables.diasTranscurridos == 1)
         {
             Round1(false);
+            musicManager.DayMusic(true);
         }
         //foreach (GameObject spawner in spawners)
         //{

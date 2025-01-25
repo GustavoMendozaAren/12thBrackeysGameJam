@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0d1df8af-0cb6-4d15-b52b-f6d4401c2435}">
+		<property name="assetPath">
+			<value>Stolen World - Day (Premix).wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>55.28572916666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de2ec081-c406-435b-aba8-0f2f4f592389}</destination>
+		</relationship>
+	</object>
+</objects>
