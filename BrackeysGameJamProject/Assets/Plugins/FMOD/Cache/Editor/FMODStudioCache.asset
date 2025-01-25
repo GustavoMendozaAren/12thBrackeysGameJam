@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -393887809
     Data4: -1190744621
   Banks:
-  - {fileID: 2973657131358803011}
+  - {fileID: 3751020253205378849}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     Data3: -937314416
     Data4: -1900580997
   Banks:
-  - {fileID: 2973657131358803011}
+  - {fileID: 3751020253205378849}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -84,6 +84,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 44571
+--- !u!114 &-5052323706387505546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../Users/stav_/OneDrive/Documentos/2.Personal/8.Brackeys2024.2/8.FMOD/Build/Desktop/Master.strings.bank
+  Name: Desktop/Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638730624860000000
+  FileSizes:
+  - Name: 
+    Value: 1212
+  Exists: 1
 --- !u!114 &-3338779524179796666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +123,8 @@ MonoBehaviour:
     Data3: 312209542
     Data4: 511586635
   Banks:
-  - {fileID: 336791352183766013}
-  - {fileID: 2973657131358803011}
+  - {fileID: 1550705891045022578}
+  - {fileID: 3751020253205378849}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -175,21 +195,21 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 5129852452964133349}
-  - {fileID: 336791352183766013}
-  - {fileID: 2973657131358803011}
+  - {fileID: -5052323706387505546}
+  - {fileID: 1550705891045022578}
+  - {fileID: 3751020253205378849}
   EditorEvents:
   - {fileID: -8902118153548182576}
   - {fileID: -7872094705891946404}
   - {fileID: -3338779524179796666}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 336791352183766013}
+  - {fileID: 1550705891045022578}
   StringsBanks:
-  - {fileID: 5129852452964133349}
-  cacheTime: 638730624860353015
+  - {fileID: -5052323706387505546}
+  cacheTime: 638730624860000000
   cacheVersion: 131622
---- !u!114 &336791352183766013
+--- !u!114 &1550705891045022578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,17 +219,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Desktop/Master.bank
   m_EditorClassIdentifier: 
-  Path: Stolen World FMOD/Build/Desktop/Master.bank
-  Name: Master
+  Path: ../../../../Users/stav_/OneDrive/Documentos/2.Personal/8.Brackeys2024.2/8.FMOD/Build/Desktop/Master.bank
+  Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638730624860084630
-  FileSizes:
-  - Name: Desktop
-    Value: 2778
+  lastModified: 638730624860000000
+  FileSizes: []
   Exists: 1
---- !u!114 &2973657131358803011
+--- !u!114 &3751020253205378849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,33 +237,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: bank:/Desktop/Music.bank
   m_EditorClassIdentifier: 
-  Path: Stolen World FMOD/Build/Desktop/Music.bank
-  Name: Music
+  Path: ../../../../Users/stav_/OneDrive/Documentos/2.Personal/8.Brackeys2024.2/8.FMOD/Build/Desktop/Music.bank
+  Name: Desktop/Music
   StudioPath: bank:/Music
-  lastModified: 638730624860353015
-  FileSizes:
-  - Name: Desktop
-    Value: 1939328
-  Exists: 1
---- !u!114 &5129852452964133349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Stolen World FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638730624860094605
-  FileSizes:
-  - Name: Desktop
-    Value: 1212
+  lastModified: 638730624860000000
+  FileSizes: []
   Exists: 1
