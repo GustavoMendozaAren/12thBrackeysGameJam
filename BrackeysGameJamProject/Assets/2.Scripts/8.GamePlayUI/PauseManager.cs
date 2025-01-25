@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    
+    private MusicManager musicManager;
 
     [Header("TUTORIAL PANELS")]
     [SerializeField] private GameObject[] tutPanel;
@@ -19,16 +19,22 @@ public class PauseManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0f;
+
+        GameObject instanciaMusic = GameObject.Find("Music");
+        musicManager = instanciaMusic.GetComponent<MusicManager>();
+        musicManager.DayMusic(true);
     }
     public void PauseBttn()
     {
         pausePanel.SetActive(true);
+        musicManager.IsPaused(true);
         Time.timeScale = 0f;
     }
 
     public void PauseBttnBack()
     {
         pausePanel.SetActive(false);
+        musicManager.IsPaused(false);
         Time.timeScale = 1f;
     }
 
