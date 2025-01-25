@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    
+
 
     [Header("TUTORIAL PANELS")]
     [SerializeField] private GameObject[] tutPanel;
 
     [Header("PANELES")]
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject barreraPause;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject controlsPanel;
 
@@ -22,8 +23,10 @@ public class PauseManager : MonoBehaviour
     }
     public void PauseBttn()
     {
+
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;
+        barreraPause.SetActive(true);
+        StartCoroutine(PauseComplete());
     }
 
     public void PauseBttnBack()
@@ -63,6 +66,15 @@ public class PauseManager : MonoBehaviour
         StaticVariables.cantidadAldeanosDisponibles = 0;
         StaticVariables.cantidadBuildersTotales = 0;
         StaticVariables.cantidadBuildersDisponibles = 0;
+    }
+
+    IEnumerator PauseComplete()
+    {
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(1f);
+        barreraPause.SetActive(false);
+        Time.timeScale = 0f;
+
     }
 
     // TUTORIAL STUFF
