@@ -12,6 +12,7 @@ public class PauseManager : MonoBehaviour
 
     [Header("PANELES")]
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject pausePanelBarrera;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject controlsPanel;
 
@@ -28,7 +29,7 @@ public class PauseManager : MonoBehaviour
     {
         pausePanel.SetActive(true);
         musicManager.IsPaused(true);
-        Time.timeScale = 0f;
+        StartCoroutine(PausePanelTime());
     }
 
     public void PauseBttnBack()
@@ -69,6 +70,15 @@ public class PauseManager : MonoBehaviour
         StaticVariables.cantidadAldeanosDisponibles = 0;
         StaticVariables.cantidadBuildersTotales = 0;
         StaticVariables.cantidadBuildersDisponibles = 0;
+    }
+
+    IEnumerator PausePanelTime()
+    {
+        pausePanelBarrera.SetActive(true);
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(.9f);
+        pausePanelBarrera.SetActive(false);
+        Time.timeScale = 0f;
     }
 
     // TUTORIAL STUFF
