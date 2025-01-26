@@ -6,6 +6,7 @@ public class CondicionesDeVictoria : MonoBehaviour
 {
     [Header("PANELES")]
     [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject victoryPanelBarrera;
     [SerializeField] private GameObject defeatedPanel;
     [SerializeField] private GameObject defeatedPanelBarrera;
 
@@ -18,20 +19,28 @@ public class CondicionesDeVictoria : MonoBehaviour
     public void Victoria()
     {
         victoryPanel.SetActive(true);
-        Time.timeScale = 0f;
+        StartCoroutine(VBarrerasTiempo());
     }
 
     public void Derrota()
     {
         defeatedPanel.SetActive(true);
-        StartCoroutine(BarrerasTiempo());
+        StartCoroutine(DBarrerasTiempo());
     }
 
-    IEnumerator BarrerasTiempo()
+    IEnumerator DBarrerasTiempo()
     {
         defeatedPanelBarrera.SetActive(true);
         yield return new WaitForSeconds(6f);
         defeatedPanelBarrera.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    IEnumerator VBarrerasTiempo()
+    {
+        victoryPanelBarrera.SetActive(true);
+        yield return new WaitForSeconds(5.5f);
+        victoryPanelBarrera.SetActive(false);
         Time.timeScale = 0f;
     }
 }
