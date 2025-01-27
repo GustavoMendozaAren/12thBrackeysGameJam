@@ -9,23 +9,29 @@ public class CondicionesDeVictoria : MonoBehaviour
     [SerializeField] private GameObject victoryPanelBarrera;
     [SerializeField] private GameObject defeatedPanel;
     [SerializeField] private GameObject defeatedPanelBarrera;
+    private MusicManager musicManager;
 
     private void Start()
     {
         victoryPanel.SetActive(false);
         defeatedPanel.SetActive(false);
+        GameObject instanciaMusic = GameObject.Find("Music");
+        musicManager = instanciaMusic.GetComponent<MusicManager>();
+        musicManager.OnGameStateChanged(0);
     }
 
     public void Victoria()
     {
         victoryPanel.SetActive(true);
         StartCoroutine(VBarrerasTiempo());
+        musicManager.OnGameStateChanged(1);
     }
 
     public void Derrota()
     {
         defeatedPanel.SetActive(true);
         StartCoroutine(DBarrerasTiempo());
+        musicManager.OnGameStateChanged(2);
     }
 
     IEnumerator DBarrerasTiempo()
