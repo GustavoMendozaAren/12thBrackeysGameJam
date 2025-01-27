@@ -308,7 +308,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: Stolen World FMOD/Stolen World.fspro
-  sourceBankPath: ../../../../Users/stav_/OneDrive/Documentos/2.Personal/8.Brackeys2024.2/8.FMOD/Build
+  sourceBankPath: Stolen World FMOD/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 0

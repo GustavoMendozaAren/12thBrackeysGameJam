@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2ee4ce0f-8df9-43a5-b108-03810becfa9d}">
+		<property name="assetPath">
+			<value>Stolen World - Victory.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.2196041666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de2ec081-c406-435b-aba8-0f2f4f592389}</destination>
+		</relationship>
+	</object>
+</objects>
