@@ -5,24 +5,42 @@ using UnityEngine;
 public class CondicionesDeVictoria : MonoBehaviour
 {
     [Header("PANELES")]
-    [SerializeField] private GameObject VictoryPanel;
-    [SerializeField] private GameObject DefeatedPanel;
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject victoryPanelBarrera;
+    [SerializeField] private GameObject defeatedPanel;
+    [SerializeField] private GameObject defeatedPanelBarrera;
 
     private void Start()
     {
-        VictoryPanel.SetActive(false);
-        DefeatedPanel.SetActive(false);
+        victoryPanel.SetActive(false);
+        defeatedPanel.SetActive(false);
     }
 
     public void Victoria()
     {
-        VictoryPanel.SetActive(true);
-        Time.timeScale = 0f;
+        victoryPanel.SetActive(true);
+        StartCoroutine(VBarrerasTiempo());
     }
 
     public void Derrota()
     {
-        DefeatedPanel.SetActive(true);
+        defeatedPanel.SetActive(true);
+        StartCoroutine(DBarrerasTiempo());
+    }
+
+    IEnumerator DBarrerasTiempo()
+    {
+        defeatedPanelBarrera.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        defeatedPanelBarrera.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    IEnumerator VBarrerasTiempo()
+    {
+        victoryPanelBarrera.SetActive(true);
+        yield return new WaitForSeconds(5.5f);
+        victoryPanelBarrera.SetActive(false);
         Time.timeScale = 0f;
     }
 }
