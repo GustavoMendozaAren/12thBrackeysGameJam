@@ -18,6 +18,8 @@ public class TorretsStats : MonoBehaviour
 
     private TextMeshProUGUI aldeanosTotalesTxt;
 
+    private Notificaciones dNotificacion;
+
     private int AldeanosEnTorre = 0;
     private int damage = 0;
     private int range = 1;
@@ -111,6 +113,7 @@ public class TorretsStats : MonoBehaviour
                 {
                     ActualizarAldeanosTotalesYTorre(1);
                     ActualizarCantidadPersonas();
+                    dNotificacion.ActiveDeathNotiication();
                 }
 
                 if (AldeanosEnTorre == 2)
@@ -130,6 +133,7 @@ public class TorretsStats : MonoBehaviour
         damage -= (number * 10);
         range -= number;
 
+        dNotificacion.NumeroDeBajas(number);
         
         aldeanosTotalesTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
 
