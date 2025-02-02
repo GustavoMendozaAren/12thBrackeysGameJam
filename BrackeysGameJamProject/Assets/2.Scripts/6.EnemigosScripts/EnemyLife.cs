@@ -10,10 +10,13 @@ public class EnemyLife : MonoBehaviour
     private float vidaActual;
     [SerializeField] private Image barraDeVida;
 
+    private Animator animator;
+
     private void Start()
     {
         vidaActual = vidaMaxima; // Inicia con la vida máxima
         ActualizarBarraDeVida();
+        animator = GetComponent<Animator>();
     }
 
     public void ReducirVida(float cantidadDeDano)
@@ -29,12 +32,17 @@ public class EnemyLife : MonoBehaviour
 
     private void Muerte()
     {
-        Destroy(gameObject);
+        animator.SetBool("IsDeath", true);
     }
 
     private void ActualizarBarraDeVida()
     {
         // Calcula el valor de llenado en función de la vida actual
         barraDeVida.fillAmount = vidaActual / vidaMaxima;
+    }
+
+    private void DeactivateEnemy()
+    {
+        gameObject.SetActive(false);
     }
 }
