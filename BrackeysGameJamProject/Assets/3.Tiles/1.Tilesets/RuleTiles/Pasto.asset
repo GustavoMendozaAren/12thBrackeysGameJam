@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Pasto
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 78239278, guid: 73aab89446d29eb4da00cff35bd4e1e5, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: -823292573, guid: b3e9624b505507540a4973eff110aedd, type: 3}
+    - {fileID: -987294574, guid: 81960b57183558a4c816e536abc4682d, type: 3}
+    - {fileID: 218347182, guid: b200846e49b91d74a8909a4b5fc20007, type: 3}
+    - {fileID: -272043904, guid: 3e5445ef812c2084cbd8a968b129f5e1, type: 3}
+    - {fileID: 1048099247, guid: 922c6612c026c2a4fba4b5c89f2e566f, type: 3}
+    - {fileID: 1478074846, guid: 7990b0f183f3bfc41b8ae9650ba1bc05, type: 3}
+    - {fileID: -469389729, guid: 395a3822fc94a94428a4209708e06c95, type: 3}
+    - {fileID: 78239278, guid: 73aab89446d29eb4da00cff35bd4e1e5, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 1
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 
+    m_NeighborPositions:
+    - {x: -1, y: 1, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
+    m_RuleTransform: 0
