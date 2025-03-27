@@ -44,9 +44,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Animations()
     {
-        if(ID == 2)
+        if (ID == 1)
+            animator.SetTrigger("Attack");
+        else if (ID == 2)
             animator.SetTrigger("Healing");
-        else if(ID == 3)
+        else if (ID == 3)
             animator.SetTrigger("ShieldActive");
 
     }
