@@ -22045,6 +22045,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c424d27a13f3e34f8325cc7d62a759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicoEnCadaHorda: 
+  healerEnCadaHorda: 
+  tankEnCadaHorda: 
   spawners:
   - {fileID: 1190841773}
   - {fileID: 53704677}
@@ -36233,7 +36236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6607870244459910484, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8386686050179825461, guid: 6c7c70058e180204e9bd1b881783e00d, type: 3}
       propertyPath: m_LocalPosition.x
