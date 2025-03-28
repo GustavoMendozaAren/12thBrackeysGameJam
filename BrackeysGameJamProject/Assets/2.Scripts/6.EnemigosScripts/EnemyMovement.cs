@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Animations Variables
     private Animator animator;
+    private BoxCollider2D boxCollider;
 
     [SerializeField] private GameObject[] vfx;
 
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
         continuarMovimiento = true;
     }
 
@@ -100,6 +102,7 @@ public class EnemyMovement : MonoBehaviour
     public void DetenerMovimiento()
     {
         continuarMovimiento = false;
+        boxCollider.enabled = false;
     }
 
     IEnumerator DesactivarVfx()

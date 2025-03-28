@@ -4,32 +4,45 @@ using UnityEngine;
 
 public class AtackTurret : MonoBehaviour
 {
-    [SerializeField] private GameObject proyectilPrefab;      // Prefab del proyectil
-    [SerializeField] private Transform puntoDisparo;          // Punto desde donde se dispara el proyectil
-    private float velocidadProyectil = 10f;  // Velocidad del proyectil
-    private float rateOfFire = 1f;           // Tasa de disparo (en segundos)
+    [SerializeField] private GameObject proyectilPrefab;
+    [SerializeField] private Transform puntoDisparo;
+    private float velocidadProyectil = 10f;
+    private float rateOfFire = 1f;
 
-    private Transform objetivo;             // Almacena la posición del enemigo detectado
+    private Transform objetivo;
     private float tiempoProximoDisparo = 0f;
+
+    private List<Transform> enemigosEnRango = new List<Transform>();
 
     [HideInInspector] public bool canAtack = false;
     [HideInInspector] public bool maxAtack = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Verifica si el objeto detectado es un enemigo
-        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank"))
+        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank") || other.CompareTag("EnemyHealer"))
         {
-            objetivo = other.transform; // Almacena el enemigo como objetivo
+            enemigosEnRango.Add(other.transform);
+
+            // Si no hay objetivo actual, selecciona el primero
+            if (objetivo == null)
+            {
+                objetivo = other.transform;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Cuando el enemigo sale del rango, se elimina como objetivo
-        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank"))
+        if (other.CompareTag("EnemyBasic") || other.CompareTag("EnemyTank") || other.CompareTag("EnemyHealer"))
         {
-            objetivo = null;
+            enemigosEnRango.Remove(other.transform);
+
+            // Si el enemigo que sale es el objetivo actual
+            if (other.transform == objetivo)
+            {
+                // Cambia el objetivo al primer enemigo en la lista o null si está vacía
+                objetivo = enemigosEnRango.Count > 0 ? enemigosEnRango[0] : null;
+            }
         }
     }
 
@@ -38,30 +51,13 @@ public class AtackTurret : MonoBehaviour
         velocidadProyectil = StaticVariables.proyectileSpeed;
         rateOfFire = StaticVariables.rateOfFire;
 
-        // Si hay un enemigo en rango y el tiempo de disparo ha pasado
+        // Si hay un objetivo y es momento de disparar
         if (objetivo != null && Time.time >= tiempoProximoDisparo)
         {
             Disparar();
-            tiempoProximoDisparo = Time.time + rateOfFire; // Define el próximo tiempo de disparo
+            tiempoProximoDisparo = Time.time + rateOfFire;
         }
     }
-
-    /*
-    private void Disparar()
-    {
-        if (canAtack)
-        {
-            // Calcula la dirección hacia el enemigo
-            Vector2 direccion = (objetivo.position - puntoDisparo.position).normalized;
-
-            // Crea el proyectil en el punto de disparo y lo direcciona hacia el enemigo
-            GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, Quaternion.identity);
-            Rigidbody2D rbProyectil = proyectil.GetComponent<Rigidbody2D>();
-
-            // Aplica velocidad al proyectil en la dirección calculada
-            rbProyectil.velocity = direccion * velocidadProyectil;
-        }
-    }*/
 
     private void Disparar()
     {
@@ -71,28 +67,19 @@ public class AtackTurret : MonoBehaviour
             GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, Quaternion.identity);
 
             Proyectil proyectilScript = proyectil.GetComponent<Proyectil>();
-            proyectilScript.dano = CalcularDanoTorreta(); // Ajusta el daño según la torreta
+            proyectilScript.dano = CalcularDanoTorreta();
 
             Rigidbody2D rbProyectil = proyectil.GetComponent<Rigidbody2D>();
             rbProyectil.velocity = direccion * velocidadProyectil;
 
-            // Rotación del proyectil hacia el objetivo
-            float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg; // Calcular el ángulo
-            proyectil.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angulo - 90)); // Ajustar rotación restando 90 grados
+            float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
+            proyectil.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angulo - 90));
         }
     }
 
     private int CalcularDanoTorreta()
     {
-        if (maxAtack) 
-        {
-            return 2;
-        }
-        else
-        {
-            return 1;
-        }
-       
+        return maxAtack ? 2 : 1;
     }
 
 }
