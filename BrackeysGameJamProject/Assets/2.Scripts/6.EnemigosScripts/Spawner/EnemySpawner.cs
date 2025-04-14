@@ -49,8 +49,8 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            timeRemaining = 0;
             timerIsRunning = false;
+            timeRemaining = 0;
         }
     }
 

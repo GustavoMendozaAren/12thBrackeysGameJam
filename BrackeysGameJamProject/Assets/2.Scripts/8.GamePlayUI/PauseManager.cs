@@ -19,8 +19,6 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0f;
-
         GameObject instanciaMusic = GameObject.Find("Music");
         musicManager = instanciaMusic.GetComponent<MusicManager>();
         musicManager.DayMusic(true);
@@ -83,44 +81,43 @@ public class PauseManager : MonoBehaviour
 
     // TUTORIAL STUFF
 
-    public void ContinueTut0Bttn()
+    public void TutQuitPanelBttn()
     {
         tutPanel[0].SetActive(false);
-        tutPanel[1].SetActive(true);
     }
 
-    public void BackTutTo0Bttn()
+    public void TutOpenPanelBttn()
     {
         tutPanel[0].SetActive(true);
-        tutPanel[1].SetActive(false);
     }
 
-    public void ContinueTut1Bttn()
-    {
-        tutPanel[1].SetActive(false);
-        tutPanel[2].SetActive(true);
-    }
-
-    public void BackTutTo1Bttn()
+    public void TutControlsBtn()
     {
         tutPanel[1].SetActive(true);
         tutPanel[2].SetActive(false);
+        tutPanel[3].SetActive(false);
+        tutPanel[4].SetActive(false);
+        tutPanel[5].SetActive(true);
+        tutPanel[6].SetActive(true);
     }
 
-    public void ContinueTut2Bttn()
+    public void TutTimeBtn()
     {
-        tutPanel[2].SetActive(false);
-        tutPanel[3].SetActive(true);
-    }
-    public void BackTutTo2Bttn()
-    {
+        tutPanel[1].SetActive(false);
         tutPanel[2].SetActive(true);
         tutPanel[3].SetActive(false);
+        tutPanel[4].SetActive(true);
+        tutPanel[5].SetActive(false);
+        tutPanel[6].SetActive(true);
     }
 
-    public void ContinueTut3Bttn()
+    public void TutBuildersBtn()
     {
-        tutPanel[3].SetActive(false);
-        Time.timeScale = 1f;
+        tutPanel[1].SetActive(false);
+        tutPanel[2].SetActive(false);
+        tutPanel[3].SetActive(true);
+        tutPanel[4].SetActive(true);
+        tutPanel[5].SetActive(true);
+        tutPanel[6].SetActive(false);
     }
 }
