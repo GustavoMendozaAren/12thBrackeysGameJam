@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
 
     [Header("TUTORIAL PANELS")]
     [SerializeField] private GameObject[] tutPanel;
+    [SerializeField] private GameObject closeTutBtn;
 
     [Header("PANELES")]
     [SerializeField] private GameObject pausePanel;
@@ -80,6 +81,11 @@ public class PauseManager : MonoBehaviour
     }
 
     // TUTORIAL STUFF
+
+    public void CloseTutBtnMethod()
+    {
+        closeTutBtn.SetActive(false);
+    }
 
     public void TutQuitPanelBttn()
     {
