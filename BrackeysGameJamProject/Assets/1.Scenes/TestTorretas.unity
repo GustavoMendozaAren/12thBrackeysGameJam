@@ -4166,7 +4166,7 @@ GameObject:
   - component: {fileID: 366019117}
   - component: {fileID: 366019116}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SquareBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6832,13 +6832,14 @@ GameObject:
   - component: {fileID: 536371992}
   - component: {fileID: 536371991}
   - component: {fileID: 536371990}
+  - component: {fileID: 536371993}
   m_Layer: 5
   m_Name: CloseTutBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &536371989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6952,6 +6953,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536371988}
   m_CullTransparentMesh: 1
+--- !u!95 &536371993
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536371988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64641c91b076eb445b74ee42ecbcc5f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &539877907
 GameObject:
   m_ObjectHideFlags: 0
@@ -16472,7 +16494,6 @@ GameObject:
   - component: {fileID: 1495019638}
   - component: {fileID: 1495019637}
   - component: {fileID: 1495019640}
-  - component: {fileID: 1495019641}
   m_Layer: 5
   m_Name: TutOpenBtn
   m_TagString: Untagged
@@ -16614,19 +16635,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1495019641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495019635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f84ac8a32c4db418a894751962345c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeTutBtn2: {fileID: 536371988}
 --- !u!1 &1504583366
 GameObject:
   m_ObjectHideFlags: 0
