@@ -27,7 +27,7 @@ public class EndTurnButtons : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
     [Header("SCRIPTS")]
-    [SerializeField] private SpawnerManagerScript spawnerManager;
+    [SerializeField] private EnemySpawnerTest spawnerManager;
     [SerializeField] private CondicionesDeVictoria condicionV;
 
     private void Update()
@@ -44,7 +44,7 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndDayButton()
     {
-        spawnerManager.ActivateSpawner();
+        spawnerManager.StartSpawningEnemies();
 
         inactiveProdBttn.SetActive(true);
         inactiveInfoBttn.SetActive(true);
@@ -63,7 +63,7 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndNightButton()
     {
-        spawnerManager.DeactivateSpawners();
+        //spawnerManager.DeactivateSpawners();
 
         inactiveProdBttn.SetActive(false);
         inactiveInfoBttn.SetActive(false);
@@ -100,15 +100,15 @@ public class EndTurnButtons : MonoBehaviour
     void FadeLightDown()
     {
         // Reducir la intensidad de la luz de manera gradual durante los 10 segundos.
-        if (globalLight.intensity > 0.01f)
+        if (globalLight.intensity > 0.1f)
         {
             // Gradualmente disminuir la intensidad de 1 a 0.1 en lightFadeDuration segundos.
-            globalLight.intensity -= (1f - 0.01f) / lightFadeDuration * Time.deltaTime;
+            globalLight.intensity -= (1f - 0.1f) / lightFadeDuration * Time.deltaTime;
         }
         else
         {
             // Detener el proceso de fade cuando se alcance la intensidad deseada.
-            globalLight.intensity = 0.01f;
+            globalLight.intensity = 0.1f;
             isFadingDown = false;
         }
     }
@@ -118,7 +118,7 @@ public class EndTurnButtons : MonoBehaviour
         if (globalLight.intensity < 1f)
         {
             // Gradualmente disminuir la intensidad de 1 a 0.1 en lightFadeDuration segundos.
-            globalLight.intensity += (0.01f + 1f) / lightFadeDuration * Time.deltaTime;
+            globalLight.intensity += (0.1f + 1f) / lightFadeDuration * Time.deltaTime;
         }
         else
         {

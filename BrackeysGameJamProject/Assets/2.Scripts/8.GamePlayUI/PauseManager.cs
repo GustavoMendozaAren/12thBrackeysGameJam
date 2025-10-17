@@ -75,7 +75,7 @@ public class PauseManager : MonoBehaviour
     {
         pausePanelBarrera.SetActive(true);
         Time.timeScale = 0.2f;
-        yield return new WaitForSeconds(.9f);
+        yield return new WaitForSeconds(.85f);
         pausePanelBarrera.SetActive(false);
         Time.timeScale = 0f;
     }

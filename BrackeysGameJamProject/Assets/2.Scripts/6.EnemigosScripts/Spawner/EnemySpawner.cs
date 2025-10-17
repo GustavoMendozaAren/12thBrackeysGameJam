@@ -29,6 +29,11 @@ public class EnemySpawner : MonoBehaviour
             StopWatchFunc();
             ApeearEnemyFunc();
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SpawnEnemies();
+        }
     }
     
 
@@ -56,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        timeRemaining = 180f;
+        timeRemaining = 179f;
         timerIsRunning = true;
         enemyCounter = 0;
     }

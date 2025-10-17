@@ -93,6 +93,15 @@ public class NightTimeTimer : MonoBehaviour
         StaticVariables.rateOfFire = 0.5f;
     }
 
+    public void CuatrupleSpeedBttn()
+    {
+        timerSpeed = 6f;
+        nighttimerSpeed = 6f;
+        StaticVariables.enemiesSpeed = 4;
+        StaticVariables.proyectileSpeed = 2.5f;
+        StaticVariables.rateOfFire = 0.25f;
+    }
+
     public void ResertNightTimerBttn()
     {
         timerSpeed = 1.5f;
