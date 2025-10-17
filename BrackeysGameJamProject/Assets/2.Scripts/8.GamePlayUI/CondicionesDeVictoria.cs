@@ -20,6 +20,19 @@ public class CondicionesDeVictoria : MonoBehaviour
         musicManager.OnGameStateChanged(0);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Victoria();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Derrota();
+        }
+    }
+
     public void Victoria()
     {
         victoryPanel.SetActive(true);
@@ -45,7 +58,7 @@ public class CondicionesDeVictoria : MonoBehaviour
     IEnumerator VBarrerasTiempo()
     {
         victoryPanelBarrera.SetActive(true);
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(6f);
         victoryPanelBarrera.SetActive(false);
         Time.timeScale = 0f;
     }
