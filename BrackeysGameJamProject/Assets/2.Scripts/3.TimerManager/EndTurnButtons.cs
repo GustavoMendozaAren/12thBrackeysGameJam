@@ -29,6 +29,7 @@ public class EndTurnButtons : MonoBehaviour
     [Header("SCRIPTS")]
     [SerializeField] private EnemySpawnerTest spawnerManager;
     [SerializeField] private CondicionesDeVictoria condicionV;
+    [SerializeField] private EndButtonAnims endButtonAnims;
 
     private void Update()
     {
@@ -40,6 +41,25 @@ public class EndTurnButtons : MonoBehaviour
         {
             FadeLightUp();
         }
+    }
+
+    public void TestNightCicle()
+    {
+        endButtonAnims.LunaExitMethod();
+        dayButtonsPanel.SetActive(false);
+        nightButtonsPanel.SetActive(true);
+        isFadingDown = true;
+        daysTxtObj.SetActive(false);
+    }
+
+    public void TestDayCicle()
+    {
+        endButtonAnims.LunaInMethod();
+        dayButtonsPanel.SetActive(true);
+        nightButtonsPanel.SetActive(false);
+        isFadingUp = true;
+        BorrarDiasTranscurridosTest();
+        daysTxtObj.SetActive(true);
     }
 
     public void EndDayButton()
@@ -93,8 +113,12 @@ public class EndTurnButtons : MonoBehaviour
         {
             condicionV.Victoria();
         }
-        
+    }
 
+    void BorrarDiasTranscurridosTest()
+    {
+        StaticVariables.diasTranscurridos++;
+        daysTxt.text = "DAY " + StaticVariables.diasTranscurridos;
     }
 
     void FadeLightDown()

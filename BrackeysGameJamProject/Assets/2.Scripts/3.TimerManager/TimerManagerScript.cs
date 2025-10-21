@@ -12,9 +12,8 @@ public class TimerManagerScript : MonoBehaviour
     [SerializeField] private GameObject manecillaObj;
 
     private int dayTimeMin = 12;
-    //private int dayTimeSec = 0;
 
-    private float rotationAmount = 90f;
+    private float rotationAmount2 = 0f;
     public int DayTimeMin 
     { 
         get { return dayTimeMin; }
@@ -22,26 +21,24 @@ public class TimerManagerScript : MonoBehaviour
         {
             dayTimeMin = Mathf.Max(0, value);
             ActualizarTexto();
-            ActualizarManecillas();
+            ActualizarNuevasManecillas();
         } 
     }
 
     void Start()
     {
         ActualizarTexto();
-        ActualizarManecillas();
+        ActualizarNuevasManecillas();
     }
 
-    private void ActualizarManecillas()
+    private void ActualizarNuevasManecillas()
     {
-        rotationAmount = 90f - ((dayTimeMin-12f) * -15f);
-        manecillaObj.transform.rotation = Quaternion.Euler(0f, 0f, rotationAmount);
-        //Debug.Log("ManecillaActualizada");
+        rotationAmount2 = ((dayTimeMin - 12f) * 15f);
+        manecillaObj.transform.rotation = Quaternion.Euler(0f, 0f, rotationAmount2);
     }
 
     private void ActualizarTexto()
     {
-        //timerTxt.text = dayTimeMin + "H";
         timerTxt.text = string.Format($"{dayTimeMin}");
     }
 
@@ -49,6 +46,6 @@ public class TimerManagerScript : MonoBehaviour
     {
         dayTimeMin = 12;
         ActualizarTexto();
-        ActualizarManecillas();
+        ActualizarNuevasManecillas();
     }
 }
