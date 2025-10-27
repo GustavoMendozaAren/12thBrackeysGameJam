@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
 
         VelocidadDeLaAnimacion();
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             Animations();
         }

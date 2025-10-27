@@ -15,7 +15,7 @@ public class EnemySpawnerTest : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private Transform[] spawnPoints;    // Punto de spawn de los enemigos
-    private int spawnDelay = 5; // Retraso entre cada spawn
+    private int spawnDelay = 3; // Retraso entre cada spawn
 
     // Time Stuff
     private float timerToAppearBasic = 0f;
@@ -24,9 +24,9 @@ public class EnemySpawnerTest : MonoBehaviour
 
     private int enemyCounter = 0;
 
-
     private void Update()
     {
+        SpawnBasicenEmies(6);
         if (timerIsRunning)
         {
             HordasMetodo();
@@ -43,23 +43,6 @@ public class EnemySpawnerTest : MonoBehaviour
         timerToAppearHealer = 0f;
         timerIsRunning = true;
         enemyCounter = 0;
-    }
-
-    void TimerSpawner( int enemyQuantity)
-    {
-        if (enemyCounter < enemyQuantity) 
-        {
-            timerToAppearBasic += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
-            if (timerToAppearBasic >= 1f)
-            {
-                //CreateEnemyBasic();
-                timerToAppearBasic = 0f;
-            }
-        }
-        else
-        {
-            return;
-        }
     }
 
     void HordasMetodo()
@@ -135,8 +118,20 @@ public class EnemySpawnerTest : MonoBehaviour
         enemyCounter++;
     }
 
-    bool EsDivisibleEntreN(int num, int divisor)
-    {
-        return num % divisor == 0;
-    }
+    //void TimerSpawner( int enemyQuantity)
+    //{
+    //    if (enemyCounter < enemyQuantity) 
+    //    {
+    //        timerToAppearBasic += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
+    //        if (timerToAppearBasic >= 1f)
+    //        {
+    //            //CreateEnemyBasic();
+    //            timerToAppearBasic = 0f;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        return;
+    //    }
+    //}
 }
