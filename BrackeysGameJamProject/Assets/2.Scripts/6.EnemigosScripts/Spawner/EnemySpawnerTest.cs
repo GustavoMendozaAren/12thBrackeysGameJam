@@ -15,18 +15,20 @@ public class EnemySpawnerTest : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private Transform[] spawnPoints;    // Punto de spawn de los enemigos
-    private int spawnDelay = 3; // Retraso entre cada spawn
+    private int spawnDelay = 4; // Retraso entre cada spawn
 
     // Time Stuff
     private float timerToAppearBasic = 0f;
     private float timerToAppearHealer = 0f;
     private bool timerIsRunning = false;
 
-    private int enemyCounter = 0;
+    private int basicEnemyCounter = 0;
+    private int healerEnemyCounter = 0;
 
     private void Update()
     {
-        SpawnBasicenEmies(6);
+        SpawnBasicenEmies(5);
+        SpawnHealerEnemies(2);
         if (timerIsRunning)
         {
             HordasMetodo();
@@ -42,28 +44,30 @@ public class EnemySpawnerTest : MonoBehaviour
         timerToAppearBasic = 0f;
         timerToAppearHealer = 0f;
         timerIsRunning = true;
-        enemyCounter = 0;
+        basicEnemyCounter = 0;
+        healerEnemyCounter = 0;
     }
 
     void HordasMetodo()
     {
         if(StaticVariables.diasTranscurridos == 1)
         {
-            SpawnBasicenEmies(5);
+            //SpawnBasicenEmies(5);
+            //SpawnHealerEnemies(2);
         }
         if (StaticVariables.diasTranscurridos == 2)
         {
-            SpawnBasicenEmies(8);
+            //SpawnBasicenEmies(8);
         }
         if (StaticVariables.diasTranscurridos == 3)
         {
-            SpawnBasicenEmies(8);
+            //SpawnBasicenEmies(8);
         }
     }
 
     void SpawnBasicenEmies(int enemyQuantity)
     {
-        if (enemyCounter < enemyQuantity)
+        if (basicEnemyCounter < enemyQuantity)
         {
             timerToAppearBasic += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
             if (timerToAppearBasic >= 1f)
@@ -81,7 +85,7 @@ public class EnemySpawnerTest : MonoBehaviour
 
     void SpawnHealerEnemies(int enemyQuantity)
     {
-        if (enemyCounter < enemyQuantity)
+        if (healerEnemyCounter < enemyQuantity)
         {
             timerToAppearHealer += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
             if (timerToAppearHealer >= 1.5f)
@@ -92,7 +96,7 @@ public class EnemySpawnerTest : MonoBehaviour
         }
         else
         {
-            timerIsRunning = false;
+            //timerIsRunning = false;
             return;
         }
     }
@@ -101,21 +105,21 @@ public class EnemySpawnerTest : MonoBehaviour
     {
         GameObject enemyBasic = Instantiate(enemyBasicPrefab, spawnPt.position, Quaternion.identity);
         enemyBasic.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
-        enemyCounter++;
+        basicEnemyCounter++;
     }
 
     void CreateEnemyHealer(Transform spawnPt)
     {
-        GameObject enemyHealer = Instantiate(enemyHealerPrefab, spawnPt.position, Quaternion.identity);
+        GameObject enemyHealer = Instantiate(enemyHealerPrefab, spawnPt.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
         enemyHealer.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
-        enemyCounter++;
+        healerEnemyCounter++;
     }
 
     void CreateEnemyTank(Transform spawnPt)
     {
         GameObject enemyTank = Instantiate(enemyTankPrefab, spawnPt.position, Quaternion.identity);
         enemyTank.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
-        enemyCounter++;
+        basicEnemyCounter++;
     }
 
     //void TimerSpawner( int enemyQuantity)

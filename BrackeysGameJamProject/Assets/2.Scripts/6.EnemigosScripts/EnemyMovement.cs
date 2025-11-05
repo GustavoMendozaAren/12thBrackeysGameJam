@@ -13,7 +13,6 @@ public class EnemyMovement : MonoBehaviour
 
     // Animations Variables
     private Animator animator;
-    private BoxCollider2D boxCollider;
 
     [SerializeField] private GameObject[] vfx;
 
@@ -22,7 +21,6 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
         continuarMovimiento = true;
     }
 
@@ -48,8 +46,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (ID == 1)
             animator.SetTrigger("Attack");
-        else if (ID == 2)
-            animator.SetTrigger("Healing");
         else if (ID == 3)
             animator.SetTrigger("ShieldActive");
 
@@ -102,7 +98,6 @@ public class EnemyMovement : MonoBehaviour
     public void DetenerMovimiento()
     {
         continuarMovimiento = false;
-        boxCollider.enabled = false;
     }
 
     IEnumerator DesactivarVfx()

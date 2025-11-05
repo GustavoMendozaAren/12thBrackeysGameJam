@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyLife : MonoBehaviour
 {
-    [SerializeField] private float vidaMaxima = 1;       // Vida máxima del enemigo
+    [SerializeField] private float vidaMaxima = 10f;       // Vida máxima del enemigo
     //[SerializeField] private int danoPorProyectil = 1; // Daño que recibe por cada proyectil
     private float vidaActual;
     [SerializeField] private Image barraDeVida;
@@ -37,7 +37,6 @@ public class EnemyLife : MonoBehaviour
 
     private void ActualizarBarraDeVida()
     {
-        // Calcula el valor de llenado en función de la vida actual
         barraDeVida.fillAmount = vidaActual / vidaMaxima;
     }
 
