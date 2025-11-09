@@ -11,6 +11,7 @@ TagManager:
   - EnemyHealer
   - EnemyTank
   - HealCollider
+  - ShieldCollider
   layers:
   - Default
   - TransparentFX

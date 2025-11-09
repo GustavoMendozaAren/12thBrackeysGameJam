@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3591137771635111266}
   - component: {fileID: 7931962972829185962}
   - component: {fileID: 4328958426736650516}
-  - component: {fileID: 3050873586527761628}
+  - component: {fileID: -4271007122148764653}
   m_Layer: 0
   m_Name: Proyectil
   m_TagString: Proyectil
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3050873586527761628
+--- !u!114 &-4271007122148764653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4a65e13f1e6ef47a0cd256f4d00474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dano: 1
+  dano: 0.2

@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BasicLife : MonoBehaviour
 {
     [SerializeField] private float vidaMaxima = 10f;
-    private float vidaActual;
     [SerializeField] private Image barraDeVida;
+    [SerializeField] private BoxCollider2D collider;
 
+    private float vidaActual;
+    
     private Animator animator;
+
+    [HideInInspector] public bool RecibeDanioBasic = true;
 
     private void Start()
     {
-        vidaActual = 5f; // Inicia con la vida máxima
+        vidaActual = vidaMaxima; // Inicia con la vida máxima
         ActualizarBarraDeVida();
         animator = GetComponent<Animator>();
     }
@@ -24,6 +26,19 @@ public class BasicLife : MonoBehaviour
         {
             AumentarBasicVida();
         }
+
+        if (collision.CompareTag("ShieldCollider"))
+        {
+            RecibeDanioBasic = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ShieldCollider"))
+        {
+            RecibeDanioBasic = true;
+        }
     }
 
     public void ReducirVida(float cantidadDeDano)
@@ -33,6 +48,7 @@ public class BasicLife : MonoBehaviour
 
         if (vidaActual <= 0)
         {
+            collider.enabled = false;
             Muerte();
         }
     }

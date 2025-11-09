@@ -1,25 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealerHeal : MonoBehaviour
 {   
-    [SerializeField] private float vidaMaxima = 10f;       // Vida máxima del enemigo
-    //[SerializeField] private int danoPorProyectil = 1; // Daño que recibe por cada proyectil
-    private float vidaActual;
+    [SerializeField] private float vidaMaxima = 10f;
     [SerializeField] private Image barraDeVida;
     [SerializeField] private GameObject boxCollider;
+    [SerializeField] private BoxCollider2D collider;
+
+    private float vidaActual;
 
     private Animator animator;
 
-    private BasicLife basicLife;
-    private TankLife tankLife;
+    [HideInInspector] public bool RecibeDanioHealer = true;
 
     private void Start()
     {
-        vidaActual = 5f; // Inicia con la vida máxima
+        vidaActual = vidaMaxima; // Inicia con la vida máxima
         ActualizarBarraDeVida();
         animator = GetComponent<Animator>();
     }
@@ -29,6 +27,22 @@ public class HealerHeal : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             Animations();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ShieldCollider"))
+        {
+            RecibeDanioHealer = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ShieldCollider"))
+        {
+            RecibeDanioHealer = true;
         }
     }
 
@@ -44,6 +58,7 @@ public class HealerHeal : MonoBehaviour
 
         if (vidaActual <= 0)
         {
+            collider.enabled = false;
             Muerte();
         }
     }
@@ -84,6 +99,5 @@ public class HealerHeal : MonoBehaviour
         boxCollider.SetActive(true);
         yield return new WaitForSeconds(.5f);
         boxCollider.SetActive(false);
-
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
-    public float dano = 0.2f; // Daño que hace este proyectil
+    public float dano;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnemyBasic"))
         {
             dano = 2.5f;
-            EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
-            if (vidaEnemigo != null)
+            BasicLife vidaEnemigo = other.GetComponent<BasicLife>();
+            if (vidaEnemigo != null && vidaEnemigo.RecibeDanioBasic)
             {
                 vidaEnemigo.ReducirVida(dano); // Aplica daño al enemigo
             }
@@ -21,8 +21,8 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("EnemyHealer"))
         {
             dano = 1f;
-            EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
-            if (vidaEnemigo != null)
+            HealerHeal vidaEnemigo = other.GetComponent<HealerHeal>();
+            if (vidaEnemigo != null && vidaEnemigo.RecibeDanioHealer)
             {
                 vidaEnemigo.ReducirVida(dano); // Aplica daño al enemigo
             }
@@ -31,8 +31,8 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("EnemyTank"))
         {
             dano = 0.5f;
-            EnemyLife vidaEnemigo = other.GetComponent<EnemyLife>();
-            if (vidaEnemigo != null)
+            TankLife vidaEnemigo = other.GetComponent<TankLife>();
+            if (vidaEnemigo != null && vidaEnemigo.RecibirDanioTank)
             {
                 vidaEnemigo.ReducirVida(dano); // Aplica daño al enemigo
             }

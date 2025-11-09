@@ -65,7 +65,7 @@ public class TorretsStats : MonoBehaviour
             {
                 range = 2;
                 rangeTxt.text = range + "";
-                rangoSprite.transform.localScale = new Vector3(0.48f, 0.48f, 0.48f);
+                rangoSprite.transform.localScale = new Vector3(1.96f, 1.96f, 1.96f);
                 rangoCollider.radius = 12.2f;
             }
         }
@@ -85,7 +85,7 @@ public class TorretsStats : MonoBehaviour
         {
             range = 1;
             rangeTxt.text = range + "";
-            rangoSprite.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
+            rangoSprite.transform.localScale = new Vector3(0.98f, 0.98f, 0.98f);
             rangoCollider.radius = 6.165f;
         }
     }
@@ -137,7 +137,7 @@ public class TorretsStats : MonoBehaviour
         
         aldeanosTotalesTxt.text = "" + StaticVariables.cantidadAldeanosTotales;
 
-        rangoSprite.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
+        rangoSprite.transform.localScale = new Vector3(0.98f, 0.98f, 0.98f);
     }
 
     void ChecaSiPuedeAtacar()

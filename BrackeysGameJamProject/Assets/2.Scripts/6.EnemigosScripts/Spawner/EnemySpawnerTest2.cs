@@ -11,10 +11,14 @@ public class EnemySpawnerTest2 : MonoBehaviour
 
 
     [Header("Enemy Settings")]
-    [SerializeField] private Transform[] waypoints;
+    [SerializeField] private Transform[] waypointsBasic;
+    [SerializeField] private Transform[] waypointsHealer;
+    [SerializeField] private Transform[] waypointsTank;
 
     [Header("Spawn Settings")]
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform[] spawnPointBasic;
+    [SerializeField] private Transform[] spawnPointHealer;
+    [SerializeField] private Transform[] spawnPointTank;
 
     // Seconds btween enemies
     private int spawnDelay = 3;
@@ -24,7 +28,7 @@ public class EnemySpawnerTest2 : MonoBehaviour
 
     // Enemy Timers
     private float timerToAppearBasic = 0f;
-    private float timerToAppearHealer = 0f;
+    private float timerToAppearHealer = -0.5f;
     private float timerToAppearTank = 0f;
     
     // Enemy Counters
@@ -36,8 +40,8 @@ public class EnemySpawnerTest2 : MonoBehaviour
     private void Update()
     {
         SpawnBasicEnemies(3);
-        SpawnHealerEnemies(1);
-        //SpawnTankEnemies(1);
+        SpawnHealerEnemies(2);
+        SpawnTankEnemies(1);
 
         if (!timerIsRunning)
         {
@@ -78,7 +82,7 @@ public class EnemySpawnerTest2 : MonoBehaviour
 
             if (timerToAppearBasic >= 1f)
             {
-                InstanciarBasico(spawnPoints[0], new Vector3(0f, 0f, 0f));
+                InstanciarBasico(spawnPointBasic[0]);
                 timerToAppearBasic = 0f;
             }
         }
@@ -92,11 +96,11 @@ public class EnemySpawnerTest2 : MonoBehaviour
     {
         if (healerEnemyCounter < enemigosDeseados)
         {
-            timerToAppearHealer += (Time.deltaTime / 6) * StaticVariables.enemiesSpeed;
+            timerToAppearHealer += (Time.deltaTime / 3) * StaticVariables.enemiesSpeed;
 
             if (timerToAppearHealer >= 1f)
             {
-                InstanciarCurador(spawnPoints[0], new Vector3 (0f, 0.55f, 0f));
+                InstanciarCurador(spawnPointHealer[0]);
                 timerToAppearHealer = 0f;
             }
         }
@@ -110,11 +114,11 @@ public class EnemySpawnerTest2 : MonoBehaviour
     {
         if (tankEnemyCounter < enemigosDeseados)
         {
-            timerToAppearTank += (Time.deltaTime / 8) * StaticVariables.enemiesSpeed;
+            timerToAppearTank += (Time.deltaTime / 6) * StaticVariables.enemiesSpeed;
 
             if (timerToAppearTank >= 1f)
             {
-                InstanciarTanque(spawnPoints[0], new Vector3(0f, .65f, 0f));
+                InstanciarTanque(spawnPointTank[0]);
                 timerToAppearTank = 0f;
             }
         }
@@ -123,58 +127,24 @@ public class EnemySpawnerTest2 : MonoBehaviour
             return;
         }
     }
-
-    void SpawnTankAndOthers(int enemigosDeseados)
+    void InstanciarBasico(Transform spawnPt)
     {
-        if (basicEnemyCounter < enemigosDeseados)
-        {
-            timerToAppearTank += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
-            timerToAppearHealer += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
-            timerToAppearBasic += (Time.deltaTime / spawnDelay) * StaticVariables.enemiesSpeed;
-
-            if (timerToAppearTank >= 4f)
-            {
-                //InstanciarTanque(spawnPoints[0]);
-                timerToAppearTank = 0f;
-                timerToAppearHealer = 0f;
-                timerToAppearBasic = 0f;
-            }
-            else if (timerToAppearHealer >= 2f)
-            {
-                //InstanciarCurador(spawnPoints[0]);
-                timerToAppearHealer = 0f;
-                timerToAppearBasic = 0f;
-            }
-            else if (timerToAppearBasic >= 1f)
-            {
-                //InstanciarBasico(spawnPoints[0]);
-                timerToAppearBasic = 0f;
-            }
-        }
-        else
-        {
-            timerIsRunning = false;
-            return;
-        }
-    }
-    void InstanciarBasico(Transform spawnPt, Vector3 offset)
-    {
-        GameObject enemyBasic = Instantiate(enemyBasicPrefab, spawnPt.position + offset, Quaternion.identity);
-        enemyBasic.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
+        GameObject enemyBasic = Instantiate(enemyBasicPrefab, spawnPt.position, Quaternion.identity);
+        enemyBasic.GetComponent<EnemyMovement>().SetWaypoints(waypointsBasic);
         basicEnemyCounter++;
     }
 
-    void InstanciarCurador(Transform spawnPt, Vector3 offset)
+    void InstanciarCurador(Transform spawnPt)
     {
-        GameObject enemyHealer = Instantiate(enemyHealerPrefab, spawnPt.position + offset , Quaternion.identity);
-        enemyHealer.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
+        GameObject enemyHealer = Instantiate(enemyHealerPrefab, spawnPt.position, Quaternion.identity);
+        enemyHealer.GetComponent<EnemyMovement>().SetWaypoints(waypointsHealer);
         healerEnemyCounter++;
     }
 
-    void InstanciarTanque(Transform spawnPt, Vector3 offset)
+    void InstanciarTanque(Transform spawnPt)
     {
-        GameObject enemyTank = Instantiate(enemyTankPrefab, spawnPt.position + offset, Quaternion.identity);
-        enemyTank.GetComponent<EnemyMovement>().SetWaypoints(waypoints);
+        GameObject enemyTank = Instantiate(enemyTankPrefab, spawnPt.position, Quaternion.identity);
+        enemyTank.GetComponent<EnemyMovement>().SetWaypoints(waypointsTank);
         tankEnemyCounter++;
     }
 }
