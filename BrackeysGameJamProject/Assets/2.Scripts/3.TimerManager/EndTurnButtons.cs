@@ -27,7 +27,7 @@ public class EndTurnButtons : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spareBuildersTxt;
 
     [Header("SCRIPTS")]
-    [SerializeField] private EnemySpawnerTest spawnerManager;
+    [SerializeField] private EnemySpawnerTest2 spawnerManager;
     [SerializeField] private CondicionesDeVictoria condicionV;
     [SerializeField] private EndButtonAnims endButtonAnims;
 
@@ -64,7 +64,7 @@ public class EndTurnButtons : MonoBehaviour
 
     public void EndDayButton()
     {
-        spawnerManager.StartSpawningEnemies();
+        spawnerManager.StartSpawningEnemiesBtn();
 
         inactiveProdBttn.SetActive(true);
         inactiveInfoBttn.SetActive(true);

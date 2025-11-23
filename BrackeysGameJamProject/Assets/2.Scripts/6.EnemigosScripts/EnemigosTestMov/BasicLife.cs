@@ -7,9 +7,9 @@ public class BasicLife : MonoBehaviour
     [SerializeField] private Image barraDeVida;
     [SerializeField] private BoxCollider2D collider;
 
-    private float vidaActual;
-    
     private Animator animator;
+    private float vidaActual;
+    private int contador = 0;
 
     [HideInInspector] public bool RecibeDanioBasic = true;
 
@@ -43,6 +43,8 @@ public class BasicLife : MonoBehaviour
 
     public void ReducirVida(float cantidadDeDano)
     {
+        AnimacionEspecial();
+
         vidaActual -= cantidadDeDano;
         ActualizarBarraDeVida();
 
@@ -50,7 +52,7 @@ public class BasicLife : MonoBehaviour
         {
             collider.enabled = false;
             Muerte();
-        }
+        }   
     }
 
     public void AumentarBasicVida()
@@ -60,6 +62,20 @@ public class BasicLife : MonoBehaviour
         if (vidaActual >= 10)
         {
             vidaActual = 10;
+        }
+    }
+
+    private void AnimacionEspecial()
+    {
+        contador++;
+
+        if ( (contador >= 1 && contador < 2) || (contador >= 5 && contador < 6) )
+        {
+            animator.SetTrigger("Attack");
+        }
+        else if (contador >= 9)
+        {
+            contador = 0;
         }
     }
 

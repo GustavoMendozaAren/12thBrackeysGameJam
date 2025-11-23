@@ -8,10 +8,10 @@ public class TankLife : MonoBehaviour
     [SerializeField] private Image barraDeVida;
     [SerializeField] private GameObject shieldCollider;
     [SerializeField] private BoxCollider2D collider;
-
-    private float vidaActual;
-
+    
     private Animator animator;
+    private float vidaActual;
+    private float contador;
 
     [HideInInspector] public bool RecibirDanioTank = true;
 
@@ -45,6 +45,8 @@ public class TankLife : MonoBehaviour
 
     public void ReducirVida(float cantidadDeDano)
     {
+        AnimacionEspecial();
+
         vidaActual -= cantidadDeDano;
         ActualizarBarraDeVida();
 
@@ -62,6 +64,20 @@ public class TankLife : MonoBehaviour
         if (vidaActual >= 10)
         {
             vidaActual = 10;
+        }
+    }
+
+    private void AnimacionEspecial()
+    {
+        contador++;
+
+        if ((contador >= 1 && contador < 2) || (contador >= 10 && contador < 11))
+        {
+            animator.SetTrigger("ShieldActive");
+        }
+        else if (contador >= 19)
+        {
+            contador = 0;
         }
     }
 

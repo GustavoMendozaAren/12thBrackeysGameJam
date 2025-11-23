@@ -39,9 +39,7 @@ public class EnemySpawnerTest2 : MonoBehaviour
 
     private void Update()
     {
-        SpawnBasicEnemies(3);
-        SpawnHealerEnemies(2);
-        SpawnTankEnemies(1);
+        HordasPorDia();
 
         if (!timerIsRunning)
         {
@@ -56,7 +54,7 @@ public class EnemySpawnerTest2 : MonoBehaviour
     public void StartSpawningEnemiesBtn()
     {
         timerToAppearBasic = 0f;
-        timerToAppearHealer = 0f;
+        timerToAppearHealer = -0.5f;
         timerToAppearTank = 0f;
 
         basicEnemyCounter = 0;
@@ -70,7 +68,9 @@ public class EnemySpawnerTest2 : MonoBehaviour
     {
         if (StaticVariables.diasTranscurridos == 1)
         {
-            
+            SpawnBasicEnemies(5);
+            SpawnHealerEnemies(2);
+            //SpawnTankEnemies(1);
         }
     }
 

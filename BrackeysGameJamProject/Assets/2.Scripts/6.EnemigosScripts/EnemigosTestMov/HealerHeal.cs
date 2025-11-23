@@ -9,9 +9,9 @@ public class HealerHeal : MonoBehaviour
     [SerializeField] private GameObject boxCollider;
     [SerializeField] private BoxCollider2D collider;
 
-    private float vidaActual;
-
     private Animator animator;
+    private float vidaActual;
+    private int contador;
 
     [HideInInspector] public bool RecibeDanioHealer = true;
 
@@ -32,6 +32,11 @@ public class HealerHeal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("HealCollider") && StaticVariables.NivelDeDificultidad == 3)
+        {
+            AumentarVida();
+        }
+
         if (collision.CompareTag("ShieldCollider"))
         {
             RecibeDanioHealer = false;
@@ -53,6 +58,8 @@ public class HealerHeal : MonoBehaviour
 
     public void ReducirVida(float cantidadDeDano)
     {
+        AnimacionEspecial();
+
         vidaActual -= cantidadDeDano;
         ActualizarBarraDeVida();
 
@@ -63,7 +70,7 @@ public class HealerHeal : MonoBehaviour
         }
     }
 
-    public void AumentarVida()
+    private void AumentarVida()
     {
         vidaActual += 2.5f;
         ActualizarBarraDeVida();
@@ -75,8 +82,24 @@ public class HealerHeal : MonoBehaviour
 
     public void HealLifeOnAnimation()
     {
-        AumentarVida();
+        if (StaticVariables.NivelDeDificultidad == 2)
+            AumentarVida();
+
         StartCoroutine(ActivarCollider());
+    }
+
+    private void AnimacionEspecial()
+    {
+        contador++;
+
+        if ((contador >= 1 && contador < 2) || (contador >= 8 && contador < 9))
+        {
+            animator.SetTrigger("Healing");
+        }
+        else if (contador >= 14)
+        {
+            contador = 0;
+        }
     }
 
     private void Muerte()
