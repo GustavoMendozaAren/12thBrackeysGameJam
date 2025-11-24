@@ -69,7 +69,7 @@ public class EnemySpawnerTest2 : MonoBehaviour
         if (StaticVariables.diasTranscurridos == 1)
         {
             SpawnBasicEnemies(5);
-            SpawnHealerEnemies(2);
+            //SpawnHealerEnemies(2);
             //SpawnTankEnemies(1);
         }
     }
