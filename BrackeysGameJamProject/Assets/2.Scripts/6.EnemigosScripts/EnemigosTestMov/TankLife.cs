@@ -71,7 +71,7 @@ public class TankLife : MonoBehaviour
     {
         contador++;
 
-        if ((contador >= 1 && contador < 2) || (contador >= 10 && contador < 11))
+        if ((contador >= 5 && contador < 6) || (contador >= 15 && contador < 16))
         {
             animator.SetTrigger("ShieldActive");
         }

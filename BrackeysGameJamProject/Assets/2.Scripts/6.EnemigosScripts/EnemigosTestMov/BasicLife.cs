@@ -6,6 +6,7 @@ public class BasicLife : MonoBehaviour
     [SerializeField] private float vidaMaxima = 10f;
     [SerializeField] private Image barraDeVida;
     [SerializeField] private BoxCollider2D collider;
+    [SerializeField] private Animator vidaBGAnim;
 
     private Animator animator;
     private float vidaActual;
@@ -81,6 +82,7 @@ public class BasicLife : MonoBehaviour
 
     private void Muerte()
     {
+        vidaBGAnim.SetBool("hasDied", true);
         animator.SetBool("IsDeath", true);
     }
 
